@@ -7,7 +7,7 @@ export default defineNuxtConfig({
   },
   ssr: false, // Enable static site generation for GitHub Pages
   app: {
-    baseURL: process.env.NODE_ENV === 'production' ? '/REPO_NAME/' : '/', // Update REPO_NAME with your repo name
+    baseURL: process.env.BASE_URL || '/', // Set BASE_URL env var if repo is not at root
     buildAssetsDir: 'assets',
   },
   modules: [

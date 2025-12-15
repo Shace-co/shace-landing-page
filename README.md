@@ -1,50 +1,44 @@
-# Pointer AI Landing Page - Nuxt.js Version
+# Shace Landing Page - Nuxt.js
 
-This is a Nuxt.js recreation of the Next.js landing page for Shace (Space management platform).
+A modern landing page for Shace, built with Nuxt.js, Vue 3, and Tailwind CSS.
 
-## Getting Started
+## 🚀 Quick Start
 
 ### Install Dependencies
 
 ```bash
 npm install
-# or
-pnpm install
-# or
-yarn install
 ```
 
 ### Development Server
 
-Start the development server on `http://localhost:3000`:
+Start the development server on `http://localhost:3006`:
 
 ```bash
 npm run dev
-# or
-pnpm dev
-# or
-yarn dev
 ```
 
 ### Build for Production
 
 ```bash
 npm run build
-# or
-pnpm build
-# or
-yarn build
+```
+
+### Generate Static Site (for GitHub Pages)
+
+```bash
+npm run generate
 ```
 
 ### Preview Production Build
 
 ```bash
 npm run preview
-# or
-pnpm preview
-# or
-yarn preview
 ```
+
+## 📦 Deployment
+
+See [DEPLOYMENT.md](./DEPLOYMENT.md) for detailed GitHub Pages deployment instructions.
 
 ## Project Structure
 
