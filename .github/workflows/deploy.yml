@@ -29,8 +29,23 @@ jobs:
         env:
           NODE_ENV: production
 
+      - name: Verify output directory
+        run: |
+          if [ ! -d ".output/public" ]; then
+            echo "ERROR: .output/public directory not found!"
+            echo "Contents of root:"
+            ls -la
+            echo "Contents of .output (if exists):"
+            ls -la .output/ 2>/dev/null || echo ".output directory does not exist"
+            exit 1
+          fi
+          echo "✓ Output directory found"
+          ls -la .output/public
+
       - name: Create .nojekyll file
-        run: touch .output/public/.nojekyll
+        run: |
+          mkdir -p .output/public
+          touch .output/public/.nojekyll
 
       - name: Deploy
         uses: peaceiris/actions-gh-pages@v3

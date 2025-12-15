@@ -7,6 +7,7 @@ export default defineNuxtConfig({
   },
   ssr: false, // Enable static site generation for GitHub Pages
   modules: [
+    '@nuxtjs/tailwindcss',
     '@vueuse/nuxt'
   ],
   postcss: {
