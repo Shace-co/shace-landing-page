@@ -7,7 +7,7 @@ export default defineNuxtConfig({
   },
   ssr: false, // Enable static site generation for GitHub Pages
   app: {
-    baseURL: process.env.BASE_URL || '/', // Set BASE_URL env var if repo is not at root
+    baseURL: '/shace-landing-page/', // GitHub Pages base URL
     buildAssetsDir: 'assets',
   },
   modules: [
