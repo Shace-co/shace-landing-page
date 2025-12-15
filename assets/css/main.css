@@ -1,0 +1,55 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    /* Themeable Colors - Restored to Original Vibe */
+    --background: 210 11% 7%; /* #0f1211 */
+    --foreground: 160 14% 93%; /* #e7eceb */
+
+    --muted: 240 2% 16%; /* #27272a */
+    --muted-foreground: 160 14% 93% / 0.7; /* rgba(231, 236, 235, 0.7) */
+    --muted-foreground-light: 160 14% 93% / 0.5; /* rgba(231, 236, 235, 0.5) */
+    --muted-foreground-dark: 160 14% 93% / 0.6; /* rgba(231, 236, 235, 0.6) */
+
+    --card: 220 17% 98% / 0.01;
+    --card-foreground: 160 14% 93%;
+
+    --popover: 210 11% 7%;
+    --popover-foreground: 160 14% 93%;
+
+    /* Primary Accent Colors */
+    --primary: 335 66% 34%; /* #911E4F */
+    --primary-foreground: 0 0% 98%; /* Light text for contrast */
+    --primary-dark: 335 65% 10%; /* #2B0917 */
+    --primary-light: 335 50% 50%; /* Lighter variant for gradients */
+
+    /* Secondary Accent Colors (for buttons, etc.) */
+    --secondary: 160 14% 93%; /* #e7eceb */
+    --secondary-foreground: 165 14% 8%; /* #141a18 */
+
+    --accent: 240 2% 25%; /* #3f3f42 */
+    --accent-foreground: 240 2% 96%; /* #f4f4f5 */
+
+    --border: 240 100% 100% / 0.08; /* rgba(255, 255, 255, 0.08) */
+    --border-light: 210 17% 6% / 0.1; /* rgba(16,24,40,0.1) */
+    --border-dark: 210 17% 6% / 0.05; /* rgba(16,24,40,0.05) */
+
+    --ring: 335 66% 34%;
+
+    --radius: 0.5rem;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply text-foreground;
+    background: linear-gradient(180deg, hsl(335, 66%, 28%) 0%, hsl(335, 65%, 8%) 100%);
+    background-attachment: fixed;
+    min-height: 100vh;
+  }
+}
