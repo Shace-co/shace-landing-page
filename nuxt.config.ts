@@ -6,10 +6,6 @@ export default defineNuxtConfig({
     port: 3006
   },
   ssr: false, // Enable static site generation for GitHub Pages
-  app: {
-    baseURL: '/shace-landing-page/', // GitHub Pages base URL
-    buildAssetsDir: 'assets',
-  },
   modules: [
     '@vueuse/nuxt'
   ],
@@ -21,6 +17,8 @@ export default defineNuxtConfig({
   },
   css: ['~/assets/css/main.css'],
   app: {
+    baseURL: '/shace-landing-page/', // GitHub Pages base URL
+    buildAssetsDir: 'assets',
     head: {
       title: 'Shace - Space management made effortless',
       meta: [
@@ -29,10 +27,10 @@ export default defineNuxtConfig({
         { name: 'description', content: 'Whether you\'re a co-working space provider, a corporate office, or a flexible space operator, Shace helps you digitize your space management and improve utilization for both employees and visitors.' }
       ],
       link: [
-        { rel: 'icon', type: 'image/png', href: '/icon-light-32x32.png', media: '(prefers-color-scheme: light)' },
-        { rel: 'icon', type: 'image/png', href: '/icon-dark-32x32.png', media: '(prefers-color-scheme: dark)' },
-        { rel: 'icon', type: 'image/svg+xml', href: '/icon.svg' },
-        { rel: 'apple-touch-icon', href: '/apple-icon.png' }
+        { rel: 'icon', type: 'image/png', href: '/shace-landing-page/icon-light-32x32.png', media: '(prefers-color-scheme: light)' },
+        { rel: 'icon', type: 'image/png', href: '/shace-landing-page/icon-dark-32x32.png', media: '(prefers-color-scheme: dark)' },
+        { rel: 'icon', type: 'image/svg+xml', href: '/shace-landing-page/icon.svg' },
+        { rel: 'apple-touch-icon', href: '/shace-landing-page/apple-icon.png' }
       ]
     }
   }
