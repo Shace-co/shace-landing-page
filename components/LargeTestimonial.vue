@@ -9,7 +9,7 @@
             </div>
             <div class="flex justify-start items-center gap-5">
               <img
-                src="/images/guillermo-rauch.png"
+                :src="avatarPath"
                 alt="Guillermo Rauch avatar"
                 width="48"
                 height="48"
@@ -27,4 +27,9 @@
     </div>
   </section>
 </template>
+
+<script setup lang="ts">
+const { getImagePath } = useLogoPath()
+const avatarPath = getImagePath("/images/guillermo-rauch.png")
+</script>
 

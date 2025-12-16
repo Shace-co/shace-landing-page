@@ -4,7 +4,7 @@
     <div :class="quoteClasses" class="relative z-10 font-normal break-words">{{ quote }}</div>
     <div class="relative z-10 flex justify-start items-center gap-3">
       <img
-        :src="avatar || '/placeholder.svg'"
+        :src="avatar ? getImagePath(avatar) : getImagePath('/placeholder.svg')"
         :alt="`${name} avatar`"
         :width="avatarSize"
         :height="avatarSize"
@@ -83,8 +83,10 @@ const companyClasses = computed(() => {
 })
 
 const backgroundElements = computed(() => props.type === 'large-teal' || props.type === 'large-light')
+const { getImagePath } = useLogoPath()
+
 const backgroundStyle = computed(() => ({
-  backgroundImage: "url('/images/large-card-background.svg')",
+  backgroundImage: `url('${getImagePath("/images/large-card-background.svg")}')`,
   zIndex: 0,
   opacity: props.type === 'large-light' ? 0.2 : 1,
 }))

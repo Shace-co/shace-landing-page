@@ -28,36 +28,38 @@
 <script setup lang="ts">
 import BentoCard from '~/components/BentoCard.vue'
 
+const { getImagePath } = useLogoPath()
+
 const cards = [
   {
     title: "Interactive Office Mapping",
     description: "Visualize your space layout, assign offices, and manage reservations using an interactive floor plan interface.",
-    image: "/images/ai-code-reviews.png",
+    image: getImagePath("/images/ai-code-reviews.png"),
   },
   {
     title: "Workspace Insights & Occupancy Dashboard",
     description: "Get real-time insights on occupancy rates, tenant turnover, and space utilization trends.",
-    image: "/images/realtime-coding-previews.png",
+    image: getImagePath("/images/realtime-coding-previews.png"),
   },
   {
     title: "Multi-Branch Support",
     description: "Manage multiple buildings or floors under one unified platform with ease.",
-    image: "/images/mcp-connectivity.png",
+    image: getImagePath("/images/mcp-connectivity.png"),
   },
   {
     title: "Tenant Registration & CRM",
     description: "Onboard new tenants with streamlined forms and keep their profiles and documentation organized.",
-    image: "/images/parallel-coding-agents.png",
+    image: getImagePath("/images/parallel-coding-agents.png"),
   },
   {
     title: "Custom Rent Sheets & Payments",
     description: "Set pricing per office or desk, assign discounts, and manage monthly payment schedules with VAT and invoice management.",
-    image: "/images/deployment-easy.png",
+    image: getImagePath("/images/deployment-easy.png"),
   },
   {
     title: "WhatsApp Integration",
     description: "Send automated payment reminders, announcements, or one-on-one messages to tenants directly through WhatsApp.",
-    image: "/images/one-click-integrations.png",
+    image: getImagePath("/images/one-click-integrations.png"),
   },
 ]
 </script>
