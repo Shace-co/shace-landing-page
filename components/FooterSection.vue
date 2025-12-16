@@ -53,8 +53,9 @@
       <div class="flex flex-col justify-start items-start gap-3">
         <h3 class="text-muted-foreground text-sm font-medium leading-5">Resources</h3>
         <div class="flex flex-col justify-center items-start gap-2">
-          <a href="#" class="text-foreground text-sm font-normal leading-5 hover:underline">Terms of use</a>
-          <a href="#" class="text-foreground text-sm font-normal leading-5 hover:underline">API Reference</a>
+          <a href="/shace-landing-page/terms-and-conditions" class="text-foreground text-sm font-normal leading-5 hover:underline">Terms and Conditions</a>
+          <a href="/shace-landing-page/privacy-policy" class="text-foreground text-sm font-normal leading-5 hover:underline">Privacy Policy</a>
+          <a href="/shace-landing-page/cancellation-policy" class="text-foreground text-sm font-normal leading-5 hover:underline">Cancellation Policy</a>
           <a href="#" class="text-foreground text-sm font-normal leading-5 hover:underline">Documentation</a>
           <a href="#" class="text-foreground text-sm font-normal leading-5 hover:underline">Community</a>
           <a href="#" class="text-foreground text-sm font-normal leading-5 hover:underline">Support</a>
@@ -63,4 +64,9 @@
     </div>
   </footer>
 </template>
+
+<script setup lang="ts">
+// NuxtLink is auto-imported in Nuxt 3
+// Footer links updated: Terms and Conditions, Privacy Policy, Cancellation Policy
+</script>
 

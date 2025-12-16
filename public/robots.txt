@@ -1,0 +1,5 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://shace-co.github.io/shace-landing-page/sitemap.xml
+

@@ -24,16 +24,14 @@
         </nav>
       </div>
       <div class="flex items-center gap-4">
-        <a
-          href="https://vercel.com/home"
-          target="_blank"
-          rel="noopener noreferrer"
+        <NuxtLink
+          to="/#pricing-section"
           class="hidden md:block"
         >
           <Button class="bg-secondary text-secondary-foreground hover:bg-secondary/90 px-6 py-2 rounded-full font-medium shadow-sm">
             Try for Free
           </Button>
-        </a>
+        </NuxtLink>
         <Sheet v-model="isSheetOpen" side="bottom" class="bg-background border-t border-border text-foreground">
           <template #trigger>
             <Button
@@ -68,16 +66,15 @@
             >
               {{ item.name }}
             </a>
-            <a
-              href="https://vercel.com/home"
-              target="_blank"
-              rel="noopener noreferrer"
+            <NuxtLink
+              to="/#pricing-section"
               class="w-full mt-4"
+              @click="isSheetOpen = false"
             >
               <Button class="bg-secondary text-secondary-foreground hover:bg-secondary/90 px-6 py-2 rounded-full font-medium shadow-sm">
                 Try for Free
               </Button>
-            </a>
+            </NuxtLink>
           </nav>
         </Sheet>
       </div>

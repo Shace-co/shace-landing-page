@@ -11,11 +11,9 @@
 
 ## Step 2: Push Your Code
 
-Run these commands in the `nuxtjs` directory:
+Run these commands in the project root directory:
 
 ```bash
-cd nuxtjs
-
 # Add your GitHub repository as remote (replace YOUR_ORG and REPO_NAME)
 git remote add origin https://github.com/YOUR_ORG/REPO_NAME.git
 

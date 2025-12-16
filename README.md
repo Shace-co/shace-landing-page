@@ -43,7 +43,7 @@ See [DEPLOYMENT.md](./DEPLOYMENT.md) for detailed GitHub Pages deployment instru
 ## Project Structure
 
 ```
-nuxtjs/
+shace-landing-page/
 ├── assets/
 │   └── css/
 │       └── main.css          # Global styles and Tailwind CSS
@@ -65,8 +65,16 @@ nuxtjs/
 │   └── TestimonialGridSection.vue # Testimonials grid
 ├── composables/
 │   └── useCn.ts              # Utility for className merging
+├── layouts/
+│   └── default.vue           # Default layout with Header
+├── pages/
+│   ├── index.vue             # Home page
+│   ├── privacy-policy.vue    # Privacy policy page
+│   ├── terms-and-conditions.vue # Terms and conditions page
+│   └── cancellation-policy.vue # Cancellation policy page
 ├── public/                    # Static assets (images, logos, etc.)
 ├── app.vue                    # Main app component
+├── error.vue                  # Custom error page
 ├── nuxt.config.ts            # Nuxt configuration
 ├── tailwind.config.js        # Tailwind CSS configuration
 └── package.json              # Dependencies and scripts
