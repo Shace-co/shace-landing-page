@@ -28,10 +28,15 @@ jobs:
         run: npm ci
 
       - name: Generate
-        run: npm run generate
+        run: |
+          echo "Starting Nuxt generate..."
+          npm run generate || {
+            echo "Generate failed, checking for errors..."
+            cat .nuxt/nuxt.log 2>/dev/null || echo "No log file found"
+            exit 1
+          }
         env:
           NODE_ENV: production
-          NUXT_APP_BASE_URL: /shace-landing-page/
 
       - name: Create .nojekyll file
         run: |

@@ -10,12 +10,6 @@ export default defineNuxtConfig({
     '@nuxtjs/tailwindcss',
     '@vueuse/nuxt'
   ],
-  postcss: {
-    plugins: {
-      tailwindcss: {},
-      autoprefixer: {},
-    },
-  },
   css: ['~/assets/css/main.css'],
   app: {
     baseURL: '/shace-landing-page/', // GitHub Pages base URL
