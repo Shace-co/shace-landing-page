@@ -6,6 +6,11 @@ export default defineNuxtConfig({
     port: 3006
   },
   ssr: false, // Enable static site generation for GitHub Pages
+  nitro: {
+    prerender: {
+      crawlLinks: true
+    }
+  },
   modules: [
     '@nuxtjs/tailwindcss',
     '@vueuse/nuxt'
