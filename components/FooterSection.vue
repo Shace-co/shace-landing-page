@@ -3,7 +3,7 @@
     <div class="flex flex-col justify-start items-start gap-8 p-4 md:p-8">
       <div class="flex gap-3 items-stretch justify-center">
         <img
-          src="/logos/shace-logo-white.svg"
+          :src="logoPath"
           alt="Shace Logo"
           width="163"
           height="44"
@@ -66,7 +66,7 @@
 </template>
 
 <script setup lang="ts">
-// NuxtLink is auto-imported in Nuxt 3
-// Footer links updated: Terms and Conditions, Privacy Policy, Cancellation Policy
+const { getLogoPath } = useLogoPath()
+const logoPath = getLogoPath('shace-logo-white.svg')
 </script>
 

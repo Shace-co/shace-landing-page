@@ -7,7 +7,7 @@
       <img
         v-for="i in 8"
         :key="i"
-        :src="`/logos/logo0${i}.svg`"
+        :src="getLogoPath(`logo0${i}.svg`)"
         :alt="`Company Logo ${i}`"
         width="400"
         height="120"
@@ -16,4 +16,8 @@
     </div>
   </section>
 </template>
+
+<script setup lang="ts">
+const { getLogoPath } = useLogoPath()
+</script>
 

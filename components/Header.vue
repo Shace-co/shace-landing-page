@@ -4,7 +4,7 @@
       <div class="flex items-center gap-6">
         <NuxtLink to="/" class="flex items-center gap-3">
           <img
-            src="/logos/shace-logo-white.svg"
+            :src="logoPath"
             alt="Shace Logo"
             width="163"
             height="44"
@@ -48,7 +48,7 @@
           <div class="flex flex-col space-y-2 text-center sm:text-left">
             <div class="flex items-center justify-start">
               <img
-                src="/logos/shace-logo-white.svg"
+                :src="logoPath"
                 alt="Shace Logo"
                 width="163"
                 height="44"
@@ -86,6 +86,9 @@
 import { ref } from 'vue'
 import Button from '~/components/ui/Button.vue'
 import Sheet from '~/components/ui/Sheet.vue'
+
+const { getLogoPath } = useLogoPath()
+const logoPath = getLogoPath('shace-logo-white.svg')
 
 const navItems = [
   { name: 'Features', href: '#features-section' },
