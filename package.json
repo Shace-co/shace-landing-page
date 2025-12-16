@@ -21,7 +21,7 @@
     "vue-router": "^4.4.0"
   },
   "devDependencies": {
-    "@nuxt/devtools": "latest",
+    "@nuxt/devtools": "^1.0.0",
     "autoprefixer": "^10.4.20",
     "postcss": "^8.5",
     "tailwindcss": "^3.4.17",

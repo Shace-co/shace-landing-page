@@ -11,6 +11,10 @@ permissions:
   pages: write
   id-token: write
 
+concurrency:
+  group: "pages"
+  cancel-in-progress: false
+
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -18,7 +22,7 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
-      - name: Setup Node
+      - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
           node-version: '20'
@@ -27,26 +31,17 @@ jobs:
       - name: Install dependencies
         run: npm ci
 
-      - name: Generate static site
+      - name: Build with Nuxt
         run: npm run generate
         env:
           NODE_ENV: production
-
-      - name: Verify output
-        run: |
-          if [ ! -d ".output/public" ]; then
-            echo "ERROR: .output/public not found!"
-            echo "Contents of .output:"
-            ls -la .output/ 2>/dev/null || echo ".output does not exist"
-            exit 1
-          fi
-          echo "Output directory exists:"
-          ls -la .output/public | head -20
+          CI: true
 
       - name: Create .nojekyll file
-        run: |
-          mkdir -p .output/public
-          touch .output/public/.nojekyll
+        run: echo > .output/public/.nojekyll
+
+      - name: Setup Pages
+        uses: actions/configure-pages@v4
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
