@@ -1,5 +1,5 @@
 <template>
-  <header class="w-full py-4 px-6">
+  <header class="w-full py-4 px-4 md:px-6 bg-transparent backdrop-blur-sm sticky top-0 z-[100] relative">
     <div class="max-w-7xl mx-auto flex items-center justify-between">
       <div class="flex items-center gap-6">
         <NuxtLink to="/" class="flex items-center gap-3">
@@ -17,7 +17,7 @@
             :key="item.name"
             :href="item.href"
             @click.prevent="handleScroll(item.href)"
-            class="text-[#888888] hover:text-foreground px-4 py-2 rounded-full font-medium transition-colors"
+            class="text-[#888888] hover:text-foreground px-4 py-2 rounded-full font-medium transition-all duration-200 hover:bg-white/5"
           >
             {{ item.name }}
           </a>
@@ -25,10 +25,16 @@
       </div>
       <div class="flex items-center gap-4">
         <NuxtLink
+          to="/sign-in"
+          class="hidden md:block text-[#888888] hover:text-foreground px-4 py-2 rounded-full font-medium transition-all duration-200 hover:bg-white/5"
+        >
+          Sign In
+        </NuxtLink>
+        <NuxtLink
           to="/#pricing-section"
           class="hidden md:block"
         >
-          <Button class="bg-secondary text-secondary-foreground hover:bg-secondary/90 px-6 py-2 rounded-full font-medium shadow-sm">
+          <Button class="bg-secondary text-secondary-foreground hover:bg-secondary/95 px-6 py-2 rounded-full font-medium shadow-sm transition-all duration-200">
             Try for Free
           </Button>
         </NuxtLink>
@@ -67,6 +73,13 @@
               {{ item.name }}
             </a>
             <NuxtLink
+              to="/sign-in"
+              class="text-[#888888] hover:text-foreground justify-start text-lg py-2"
+              @click="isSheetOpen = false"
+            >
+              Sign In
+            </NuxtLink>
+            <NuxtLink
               to="/#pricing-section"
               class="w-full mt-4"
               @click="isSheetOpen = false"
@@ -102,7 +115,15 @@ const handleScroll = (href: string) => {
   const targetId = href.substring(1)
   const targetElement = document.getElementById(targetId)
   if (targetElement) {
-    targetElement.scrollIntoView({ behavior: 'smooth' })
+    // Calculate offset for sticky header
+    const headerHeight = 80
+    const elementPosition = targetElement.getBoundingClientRect().top
+    const offsetPosition = elementPosition + window.pageYOffset - headerHeight
+
+    window.scrollTo({
+      top: offsetPosition,
+      behavior: 'smooth'
+    })
   }
 }
 </script>

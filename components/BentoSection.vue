@@ -1,7 +1,7 @@
 <template>
   <section class="w-full px-5 flex flex-col justify-center items-center overflow-visible bg-transparent">
     <div class="w-full py-8 md:py-16 relative flex flex-col justify-start items-start gap-6">
-      <div class="w-[547px] h-[938px] absolute top-[614px] left-[80px] origin-top-left rotate-[-33.39deg] bg-primary/10 blur-[130px] z-0" />
+      <div class="hidden md:block w-[547px] h-[938px] absolute top-[614px] left-[80px] origin-top-left rotate-[-33.39deg] bg-primary/10 blur-[130px] z-0" />
       <div class="self-stretch py-8 md:py-14 flex flex-col justify-center items-center gap-2 z-10">
         <div class="flex flex-col justify-start items-center gap-4">
           <h2 class="w-full max-w-3xl md:max-w-4xl lg:max-w-5xl text-center text-foreground text-4xl md:text-6xl font-semibold leading-tight md:leading-[66px]">

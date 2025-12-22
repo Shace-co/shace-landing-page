@@ -125,23 +125,25 @@
               </div>
             </div>
           </div>
-          <Button
-            :class="[
-              'self-stretch px-5 py-2 rounded-[40px] flex justify-center items-center',
-              plan.buttonClass,
-            ]"
-          >
-            <div class="px-1.5 flex justify-center items-center gap-2">
-              <span
-                :class="[
-                  'text-center text-sm font-medium leading-tight',
-                  plan.popular ? 'text-primary' : 'text-zinc-950',
-                ]"
-              >
-                {{ plan.buttonText }}
-              </span>
-            </div>
-          </Button>
+          <NuxtLink to="/register" class="self-stretch">
+            <Button
+              :class="[
+                'self-stretch px-5 py-2 rounded-[40px] flex justify-center items-center transition-all duration-200',
+                plan.buttonClass,
+              ]"
+            >
+              <div class="px-1.5 flex justify-center items-center gap-2">
+                <span
+                  :class="[
+                    'text-center text-sm font-medium leading-tight',
+                    plan.popular ? 'text-primary' : 'text-zinc-950',
+                  ]"
+                >
+                  {{ plan.buttonText }}
+                </span>
+              </div>
+            </Button>
+          </NuxtLink>
         </div>
         <div class="self-stretch flex flex-col justify-start items-start gap-4">
           <div

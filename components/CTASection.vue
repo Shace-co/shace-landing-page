@@ -9,14 +9,14 @@
           Whether you're a co-working space provider, a corporate office, or a flexible space operator, Shace helps you digitize your space management and improve utilization for both employees and visitors.
         </p>
       </div>
-      <a href="https://vercel.com/home" target="_blank" rel="noopener noreferrer">
+      <NuxtLink to="/register">
         <Button
-          class="px-[30px] py-2 bg-secondary text-secondary-foreground text-base font-medium leading-6 rounded-[99px] shadow-[0px_0px_0px_4px_rgba(255,255,255,0.13)] hover:bg-secondary/90 transition-all duration-200"
+          class="px-[30px] py-2 bg-secondary text-secondary-foreground text-base font-medium leading-6 rounded-[99px] shadow-[0px_0px_0px_4px_rgba(255,255,255,0.13)] hover:bg-secondary/95 transition-all duration-200"
           size="lg"
         >
           Signup for free
         </Button>
-      </a>
+      </NuxtLink>
     </div>
   </section>
 </template>

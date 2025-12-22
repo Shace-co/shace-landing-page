@@ -1,5 +1,5 @@
 <template>
-  <footer class="w-full max-w-[1320px] mx-auto px-5 flex flex-col md:flex-row justify-between items-start gap-8 md:gap-0 py-10 md:py-[70px]">
+  <footer class="w-full max-w-[1320px] mx-auto px-4 md:px-5 flex flex-col md:flex-row justify-between items-start gap-8 md:gap-0 py-10 md:py-[70px] bg-transparent backdrop-blur-sm relative z-[100]">
     <div class="flex flex-col justify-start items-start gap-8 p-4 md:p-8">
       <div class="flex gap-3 items-stretch justify-center">
         <img

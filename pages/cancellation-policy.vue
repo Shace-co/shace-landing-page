@@ -1,6 +1,6 @@
 <template>
-  <div class="min-h-screen bg-white">
-    <div class="max-w-4xl mx-auto px-6 py-16">
+  <div class="bg-white w-full">
+    <div class="max-w-4xl mx-auto px-6 pt-24 pb-16">
       <div class="mb-8">
         <NuxtLink to="/" class="text-primary hover:underline mb-4 inline-block">
           ← Back to Home

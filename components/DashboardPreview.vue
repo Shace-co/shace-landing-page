@@ -1,12 +1,12 @@
 <template>
-  <div class="w-[calc(100vw-32px)] md:w-[1160px]">
+  <div class="w-full max-w-[calc(100vw-32px)] md:max-w-[1160px] mx-auto">
     <div class="bg-primary-light/50 rounded-2xl p-2 shadow-2xl">
       <img
         :src="imagePath"
         alt="Dashboard preview"
         width="1160"
         height="700"
-        class="w-full h-full object-cover rounded-xl shadow-lg"
+        class="w-full h-auto object-cover rounded-xl shadow-lg"
       />
     </div>
   </div>

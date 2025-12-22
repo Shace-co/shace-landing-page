@@ -172,11 +172,6 @@
       </svg>
     </div>
 
-    <!-- Header positioned at top of hero container -->
-    <div class="absolute top-0 left-0 right-0 z-20">
-      <Header />
-    </div>
-
     <div class="relative z-10 space-y-4 md:space-y-5 lg:space-y-6 mb-6 md:mb-7 lg:mb-9 max-w-2xl md:max-w-3xl lg:max-w-4xl mt-16 md:mt-[120px] lg:mt-[160px] px-4 w-full">
       <h1 class="text-foreground text-3xl md:text-4xl lg:text-6xl font-semibold leading-tight">
         Streamline Your Workspace Management
@@ -186,17 +181,16 @@
       </p>
     </div>
 
-    <a href="https://vercel.com/home" target="_blank" rel="noopener noreferrer">
-      <Button class="relative z-10 bg-secondary text-secondary-foreground hover:bg-secondary/90 px-8 py-3 rounded-full font-medium text-base shadow-lg ring-1 ring-white/10">
+    <NuxtLink to="/register" class="relative z-10">
+      <Button class="bg-secondary text-secondary-foreground hover:bg-secondary/95 px-8 py-3 rounded-full font-medium text-base shadow-lg ring-1 ring-white/10 transition-all duration-200">
         Signup for free
       </Button>
-    </a>
+    </NuxtLink>
   </section>
 </template>
 
 <script setup lang="ts">
 import { computed } from 'vue'
-import Header from '~/components/Header.vue'
 import Button from '~/components/ui/Button.vue'
 
 // Generate grid rectangles
