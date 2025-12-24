@@ -38,7 +38,11 @@ onMounted(() => {
           }
         })
       },
-      { threshold: 0.1, once: true }
+      { 
+        threshold: 0.05, 
+        rootMargin: '50px',
+        once: true 
+      }
     )
     observer.observe(sectionRef.value)
   }
@@ -55,13 +59,15 @@ onUnmounted(() => {
 div {
   opacity: 0;
   transform: translateY(20px) scale(0.98);
-  transition: opacity 0.8s cubic-bezier(0.33, 1, 0.68, 1),
-    transform 0.8s cubic-bezier(0.33, 1, 0.68, 1);
+  transition: opacity 0.6s cubic-bezier(0.33, 1, 0.68, 1),
+    transform 0.6s cubic-bezier(0.33, 1, 0.68, 1);
+  will-change: opacity, transform;
 }
 
 div.visible {
   opacity: 1;
   transform: translateY(0) scale(1);
+  will-change: auto;
 }
 </style>
 

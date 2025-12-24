@@ -19,9 +19,11 @@ useHead({
 </script>
 
 <style>
-/* Smooth scrolling for the entire app */
+/* Smooth scrolling - only on html to avoid conflicts */
 html {
   scroll-behavior: smooth;
+  -webkit-overflow-scrolling: touch;
+  overscroll-behavior: none;
 }
 
 /* Improve focus visibility for accessibility */
@@ -34,5 +36,11 @@ html {
 ::selection {
   background-color: hsl(var(--primary) / 0.2);
   color: hsl(var(--foreground));
+}
+
+/* Optimize scrolling performance */
+* {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 </style>

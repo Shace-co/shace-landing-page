@@ -67,9 +67,9 @@
               {{ plan.name }}
               <span
                 v-if="plan.popular"
-                class="ml-2 px-2 overflow-hidden rounded-full justify-center items-center gap-2.5 inline-flex mt-0 py-0.5 bg-gradient-to-b from-primary-light/50 to-primary-light bg-white"
+                class="ml-2 px-2 overflow-hidden rounded-full justify-center items-center gap-2.5 inline-flex mt-0 py-0.5 bg-white/20 backdrop-blur-sm"
               >
-                <div class="text-center text-primary-foreground text-xs font-normal leading-tight break-words">
+                <div class="text-center text-white text-xs font-normal leading-tight break-words">
                   {{ $t('pricing.popular') }}
                 </div>
               </span>
@@ -125,7 +125,7 @@
               </div>
             </div>
           </div>
-          <NuxtLink to="/register" class="self-stretch">
+          <NuxtLink :to="localePath('/register')" class="self-stretch">
             <Button
               :class="[
                 'self-stretch px-5 py-2 rounded-[40px] flex justify-center items-center transition-all duration-200',
@@ -192,10 +192,11 @@
 
 <script setup lang="ts">
 import { ref, computed } from 'vue'
-import { useI18n } from '#imports'
+import { useI18n, useLocalePath } from '#imports'
 import Button from '~/components/ui/Button.vue'
 
 const { t } = useI18n()
+const localePath = useLocalePath()
 const isAnnual = ref(true)
 
 const pricingPlans = computed(() => [

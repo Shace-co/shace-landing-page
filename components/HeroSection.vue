@@ -181,7 +181,7 @@
       </p>
     </div>
 
-    <NuxtLink to="/register" class="relative z-10">
+    <NuxtLink :to="localePath('/register')" class="relative z-10">
       <Button class="bg-secondary text-secondary-foreground hover:bg-secondary/95 px-8 py-3 rounded-full font-medium text-base shadow-lg ring-1 ring-white/10 transition-all duration-200">
         {{ t('hero.signupButton') }}
       </Button>
@@ -191,10 +191,11 @@
 
 <script setup lang="ts">
 import { computed } from 'vue'
-import { useI18n } from '#imports'
+import { useI18n, useLocalePath } from '#imports'
 import Button from '~/components/ui/Button.vue'
 
 const { t } = useI18n()
+const localePath = useLocalePath()
 
 // Generate grid rectangles
 const gridRects = computed(() => {

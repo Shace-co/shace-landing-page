@@ -1,5 +1,5 @@
 <template>
-  <div class="min-h-screen flex">
+  <div class="min-h-screen flex" :class="{ 'flex-row-reverse': dir === 'rtl' }" :dir="dir">
     <!-- Left Side - Branding & Marketing -->
     <div class="hidden lg:flex lg:w-1/2 bg-gradient-to-br from-primary via-primary-dark to-primary-dark text-white p-8 md:p-12 flex flex-col justify-between relative overflow-hidden">
       <!-- Background Pattern -->
@@ -9,7 +9,7 @@
       
       <!-- Logo -->
       <div class="relative z-10">
-        <NuxtLink to="/" class="flex items-center gap-3 mb-8">
+        <NuxtLink :to="localePath('/')" class="flex items-center gap-3 mb-8">
           <img
             :src="logoPath"
             :alt="$t('header.logoAlt')"
@@ -53,10 +53,10 @@
 
     <!-- Right Side - Registration Form -->
     <div class="w-full lg:w-1/2 bg-white flex items-center justify-center p-6 md:p-8 lg:p-12 overflow-y-auto">
-      <div class="w-full max-w-lg">
+      <div class="w-full max-w-lg" :class="{ 'text-right': dir === 'rtl', 'text-left': dir === 'ltr' }">
         <!-- Mobile Logo -->
         <div class="lg:hidden mb-8">
-          <NuxtLink to="/" class="flex items-center gap-3">
+          <NuxtLink :to="localePath('/')" class="flex items-center gap-3">
             <img
               :src="logoPath"
               alt="Shace Logo"
@@ -134,10 +134,11 @@
             type="button"
             variant="outline"
             @click="previousStep()"
-            class="px-6 transition-all border-gray-300 bg-gray-100 text-gray-700 hover:bg-gray-200 hover:text-gray-900"
+            class="px-6 transition-all border-gray-300 bg-gray-100 text-gray-700 hover:bg-gray-200 hover:text-gray-900 flex items-center"
+            :class="dir === 'rtl' ? 'flex-row-reverse' : ''"
           >
-            <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
+            <svg class="w-4 h-4" :class="dir === 'rtl' ? 'ml-2' : 'mr-2'" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" :d="dir === 'rtl' ? 'M9 5l7 7-7 7' : 'M15 19l-7-7 7-7'" />
             </svg>
             {{ $t('register.back') }}
           </Button>
@@ -147,11 +148,12 @@
             v-if="currentStep < totalSteps"
             type="button"
             @click="nextStep()"
-            class="bg-primary text-white hover:bg-primary/95 px-8 transition-all shadow-lg hover:shadow-xl"
+            class="bg-primary text-white hover:bg-primary/95 px-8 transition-all shadow-lg hover:shadow-xl flex items-center"
+            :class="dir === 'rtl' ? 'flex-row-reverse' : ''"
           >
             {{ $t('register.next') }}
-            <svg class="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+            <svg class="w-4 h-4" :class="dir === 'rtl' ? 'mr-2' : 'ml-2'" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" :d="dir === 'rtl' ? 'M15 19l-7-7 7-7' : 'M9 5l7 7-7 7'" />
             </svg>
           </Button>
           <div v-else></div>
@@ -164,6 +166,7 @@
 
 <script setup lang="ts">
 import { computed } from 'vue'
+import { useI18n } from '#imports'
 import { useRegistration } from '~/composables/useRegistration'
 import { useLogoPath } from '~/composables/useLogoPath'
 import { useLocalePath } from '#imports'
@@ -187,6 +190,8 @@ const { currentStep, totalSteps, nextStep, previousStep, goToStep } = useRegistr
 const { getLogoPath } = useLogoPath()
 const logoPath = getLogoPath('shace-logo-white.svg')
 const localePath = useLocalePath()
+const { locale } = useI18n()
+const dir = computed(() => locale.value === 'ar' ? 'rtl' : 'ltr')
 
 const stepProps = computed(() => ({
   previous: previousStep,
@@ -226,6 +231,14 @@ const currentStepComponent = computed(() => {
 .step-leave-to {
   opacity: 0;
   transform: translateX(-20px);
+}
+
+[dir="rtl"] .step-enter-from {
+  transform: translateX(-20px);
+}
+
+[dir="rtl"] .step-leave-to {
+  transform: translateX(20px);
 }
 
 .step-content {

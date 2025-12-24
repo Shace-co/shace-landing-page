@@ -1,5 +1,5 @@
 <template>
-  <div class="min-h-screen flex">
+  <div class="min-h-screen flex" :class="{ 'flex-row-reverse': dir === 'rtl' }" :dir="dir">
     <!-- Left Side - Branding & Marketing -->
     <div class="hidden lg:flex lg:w-1/2 bg-gradient-to-br from-primary via-primary-dark to-primary-dark text-white p-8 md:p-12 flex flex-col justify-between relative overflow-hidden">
       <!-- Background Pattern -->
@@ -9,7 +9,7 @@
       
       <!-- Logo -->
       <div class="relative z-10">
-        <NuxtLink to="/" class="flex items-center gap-3 mb-8">
+        <NuxtLink :to="localePath('/')" class="flex items-center gap-3 mb-8">
           <img
             :src="logoPath"
             :alt="$t('header.logoAlt')"
@@ -39,10 +39,10 @@
 
     <!-- Right Side - Sign In Form -->
     <div class="w-full lg:w-1/2 bg-white flex items-center justify-center p-6 md:p-8 lg:p-12 overflow-y-auto">
-      <div class="w-full max-w-md">
+      <div class="w-full max-w-md" :class="{ 'text-right': dir === 'rtl', 'text-left': dir === 'ltr' }">
         <!-- Mobile Logo -->
         <div class="lg:hidden mb-8">
-          <NuxtLink to="/" class="flex items-center gap-3">
+          <NuxtLink :to="localePath('/')" class="flex items-center gap-3">
             <img
               :src="logoPath"
               alt="Shace Logo"
@@ -103,12 +103,12 @@
                   :type="showPassword ? 'text' : 'password'"
                   :placeholder="$t('signIn.passwordPlaceholder')"
                   required
-                  class="w-full pr-10"
+                  :class="['w-full', dir === 'rtl' ? 'pl-10' : 'pr-10']"
                 />
                 <button
                   type="button"
                   @click="showPassword = !showPassword"
-                  class="absolute right-3 top-1/2 transform -translate-y-1/2 text-gray-400 hover:text-gray-600 transition-colors focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 rounded p-1"
+                  :class="['absolute top-1/2 transform -translate-y-1/2 text-gray-400 hover:text-gray-600 transition-colors focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 rounded p-1', dir === 'rtl' ? 'left-3' : 'right-3']"
                   :aria-label="$t('signIn.passwordLabel')"
                   tabindex="0"
                 >
@@ -151,14 +151,15 @@
             </div>
 
             <!-- Remember Me Checkbox -->
-            <div class="flex items-center pt-1">
+            <div class="flex items-center pt-1" :class="dir === 'rtl' ? 'flex-row-reverse' : ''">
               <input
                 id="remember"
                 v-model="formData.rememberMe"
                 type="checkbox"
                 class="w-4 h-4 text-primary border-gray-300 rounded focus:ring-primary focus:ring-2 focus:ring-offset-0 cursor-pointer transition-colors"
+                :class="dir === 'rtl' ? 'ml-2.5' : 'mr-2.5'"
               />
-              <Label for="remember" class="ml-2.5 text-gray-900 cursor-pointer text-sm select-none">
+              <Label for="remember" class="text-gray-900 cursor-pointer text-sm select-none">
                 {{ $t('signIn.rememberMe') }}
               </Label>
             </div>
@@ -212,6 +213,8 @@ definePageMeta({
   layout: 'default',
 })
 
+const { locale } = useI18n()
+const dir = computed(() => locale.value === 'ar' ? 'rtl' : 'ltr')
 const { getLogoPath } = useLogoPath()
 const logoPath = getLogoPath('shace-logo-white.svg')
 const localePath = useLocalePath()

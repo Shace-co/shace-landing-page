@@ -1,6 +1,6 @@
 <template>
   <div class="max-w-md mx-auto">
-    <div class="text-left mb-8">
+    <div class="mb-8" :class="$i18n.locale === 'ar' ? 'text-right' : 'text-left'">
       <h1 class="text-3xl md:text-4xl font-semibold text-primary mb-2">{{ $t('register.step1.title') }}</h1>
       <p class="text-lg text-gray-700">
         {{ $t('register.step1.subtitle') }} <strong class="text-primary">{{ $t('register.step1.subtitleBold') }}</strong>
@@ -27,7 +27,7 @@
         </p>
       </div>
 
-      <div class="flex items-start space-x-3 p-4 rounded-lg transition-colors" :class="agreeTerms ? 'bg-primary/5' : 'bg-gray-50'">
+      <div class="flex items-start p-4 rounded-lg transition-colors" :class="[agreeTerms ? 'bg-primary/5' : 'bg-gray-50', $i18n.locale === 'ar' ? 'flex-row-reverse space-x-reverse space-x-3' : 'space-x-3']">
         <Checkbox v-model="agreeTerms" id="terms" class="mt-1 transition-all" />
         <Label for="terms" class="text-sm text-gray-700 cursor-pointer flex-1">
           {{ $t('register.step1.termsAgree') }} <NuxtLink :to="localePath('/terms-and-conditions')" class="text-primary hover:underline font-medium">{{ $t('register.step1.termsLink') }}</NuxtLink>

@@ -2,7 +2,7 @@
   <header :class="headerClasses">
     <div class="max-w-7xl mx-auto flex items-center justify-between">
       <div class="flex items-center gap-6">
-        <NuxtLink to="/" class="flex items-center gap-3">
+        <NuxtLink :to="localePath('/')" class="flex items-center gap-3">
           <img
             :src="currentLogoPath"
             :alt="$t('header.logoAlt')"
@@ -26,13 +26,13 @@
       <div class="flex items-center gap-4">
         <LanguageSwitcher />
         <NuxtLink
-          to="/sign-in"
+          :to="localePath('/sign-in')"
           :class="navLinkClasses"
         >
           {{ t('header.signIn') }}
         </NuxtLink>
         <NuxtLink
-          to="/#pricing-section"
+          :to="localePath('/#pricing-section')"
           class="hidden md:block"
         >
           <Button :class="buttonClasses">
@@ -74,14 +74,14 @@
               {{ item.name }}
             </a>
             <NuxtLink
-              to="/sign-in"
+              :to="localePath('/sign-in')"
               :class="mobileNavLinkClasses"
               @click="isSheetOpen = false"
             >
               {{ t('header.signIn') }}
             </NuxtLink>
             <NuxtLink
-              to="/#pricing-section"
+              :to="localePath('/#pricing-section')"
               class="w-full mt-4"
               @click="isSheetOpen = false"
             >
@@ -99,7 +99,7 @@
 <script setup lang="ts">
 import { ref, computed } from 'vue'
 import { useRoute } from 'vue-router'
-import { useI18n } from '#imports'
+import { useI18n, useLocalePath } from '#imports'
 import { useLogoPath } from '~/composables/useLogoPath'
 import Button from '~/components/ui/Button.vue'
 import Sheet from '~/components/ui/Sheet.vue'
@@ -107,6 +107,7 @@ import LanguageSwitcher from '~/components/LanguageSwitcher.vue'
 
 const route = useRoute()
 const { t } = useI18n()
+const localePath = useLocalePath()
 const { getLogoPath } = useLogoPath()
 const logoPath = getLogoPath('shace-logo-white.svg')
 const darkLogoPath = getLogoPath('shace-logo-color.png')
@@ -191,9 +192,12 @@ const handleScroll = (href: string) => {
     const elementPosition = targetElement.getBoundingClientRect().top
     const offsetPosition = elementPosition + window.pageYOffset - headerHeight
 
-    window.scrollTo({
-      top: offsetPosition,
-      behavior: 'smooth'
+    // Use requestAnimationFrame for smoother scrolling
+    requestAnimationFrame(() => {
+      window.scrollTo({
+        top: offsetPosition,
+        behavior: 'smooth'
+      })
     })
   }
 }

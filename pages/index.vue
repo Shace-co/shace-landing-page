@@ -16,7 +16,8 @@
           </div>
         </div>
       </div>
-      <AnimatedSection class="relative z-20 max-w-[1320px] mx-auto px-4 md:px-6 mt-[50px] sm:mt-[60px] md:mt-[80px]" :delay="0.1">
+      <!-- Trusted Partners Section - Moved below dashboard -->
+      <AnimatedSection class="relative z-20 max-w-[1320px] mx-auto px-4 md:px-6 mt-[200px] sm:mt-[250px] md:mt-[300px] lg:mt-[350px]" :delay="0.1">
         <SocialProof />
       </AnimatedSection>
       <AnimatedSection id="features-section" class="relative z-20 max-w-[1320px] mx-auto px-4 md:px-6 mt-8" :delay="0.2">
