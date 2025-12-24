@@ -5,10 +5,10 @@
       <div class="self-stretch py-8 md:py-14 flex flex-col justify-center items-center gap-2 z-10">
         <div class="flex flex-col justify-start items-center gap-4">
           <h2 class="w-full max-w-3xl md:max-w-4xl lg:max-w-5xl text-center text-foreground text-4xl md:text-6xl font-semibold leading-tight md:leading-[66px]">
-            Empower Your Workspace Management
+            {{ $t('bento.title') }}
           </h2>
           <p class="w-full max-w-2xl md:max-w-3xl lg:max-w-4xl text-center text-muted-foreground text-lg md:text-xl font-medium leading-relaxed">
-            From interactive office mapping to financial management, Shace provides everything you need to digitize and optimize your workspace operations.
+            {{ $t('bento.subtitle') }}
           </p>
         </div>
       </div>
@@ -26,41 +26,44 @@
 </template>
 
 <script setup lang="ts">
+import { computed } from 'vue'
+import { useI18n } from '#imports'
 import BentoCard from '~/components/BentoCard.vue'
 
+const { t } = useI18n()
 const { getImagePath } = useLogoPath()
 
-const cards = [
+const cards = computed(() => [
   {
-    title: "Interactive Office Mapping",
-    description: "Visualize your space layout, assign offices, and manage reservations using an interactive floor plan interface.",
+    title: t('bento.cards.officeMapping.title'),
+    description: t('bento.cards.officeMapping.description'),
     image: getImagePath("/images/ai-code-reviews.png"),
   },
   {
-    title: "Workspace Insights & Occupancy Dashboard",
-    description: "Get real-time insights on occupancy rates, tenant turnover, and space utilization trends.",
+    title: t('bento.cards.insights.title'),
+    description: t('bento.cards.insights.description'),
     image: getImagePath("/images/realtime-coding-previews.png"),
   },
   {
-    title: "Multi-Branch Support",
-    description: "Manage multiple buildings or floors under one unified platform with ease.",
+    title: t('bento.cards.multiBranch.title'),
+    description: t('bento.cards.multiBranch.description'),
     image: getImagePath("/images/mcp-connectivity.png"),
   },
   {
-    title: "Tenant Registration & CRM",
-    description: "Onboard new tenants with streamlined forms and keep their profiles and documentation organized.",
+    title: t('bento.cards.tenantCRM.title'),
+    description: t('bento.cards.tenantCRM.description'),
     image: getImagePath("/images/parallel-coding-agents.png"),
   },
   {
-    title: "Custom Rent Sheets & Payments",
-    description: "Set pricing per office or desk, assign discounts, and manage monthly payment schedules with VAT and invoice management.",
+    title: t('bento.cards.payments.title'),
+    description: t('bento.cards.payments.description'),
     image: getImagePath("/images/deployment-easy.png"),
   },
   {
-    title: "WhatsApp Integration",
-    description: "Send automated payment reminders, announcements, or one-on-one messages to tenants directly through WhatsApp.",
+    title: t('bento.cards.whatsapp.title'),
+    description: t('bento.cards.whatsapp.description'),
     image: getImagePath("/images/one-click-integrations.png"),
   },
-]
+])
 </script>
 

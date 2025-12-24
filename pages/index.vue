@@ -3,45 +3,48 @@
     <Header />
     <div class="relative overflow-x-hidden pb-0 pt-0 flex-1">
       <div class="relative z-10">
-      <div class="max-w-[1320px] mx-auto relative px-4 md:px-6">
-        <HeroSection />
+        <!-- Hero Section - Full Width Background -->
+        <div class="w-full">
+          <HeroSection />
+        </div>
         <!-- Dashboard Preview Wrapper -->
-        <div class="absolute bottom-[-150px] md:bottom-[-400px] left-1/2 transform -translate-x-1/2 z-0 w-full max-w-full px-0">
-          <AnimatedSection>
-            <DashboardPreview />
-          </AnimatedSection>
+        <div class="max-w-[1320px] mx-auto relative px-4 md:px-6">
+          <div class="absolute bottom-[-100px] md:bottom-[-180px] lg:bottom-[-200px] left-1/2 transform -translate-x-1/2 z-0 w-full max-w-full px-0">
+            <AnimatedSection>
+              <DashboardPreview />
+            </AnimatedSection>
+          </div>
         </div>
       </div>
-      <AnimatedSection class="relative z-20 max-w-[1320px] mx-auto px-4 md:px-6 mt-[200px] sm:mt-[300px] md:mt-[400px]" :delay="0.1">
+      <AnimatedSection class="relative z-20 max-w-[1320px] mx-auto px-4 md:px-6 mt-[50px] sm:mt-[60px] md:mt-[80px]" :delay="0.1">
         <SocialProof />
       </AnimatedSection>
-      <AnimatedSection id="features-section" class="relative z-20 max-w-[1320px] mx-auto px-4 md:px-6 mt-16" :delay="0.2">
+      <AnimatedSection id="features-section" class="relative z-20 max-w-[1320px] mx-auto px-4 md:px-6 mt-8" :delay="0.2">
         <BentoSection />
       </AnimatedSection>
-      <AnimatedSection class="relative z-20 max-w-[1320px] mx-auto px-4 md:px-6 mt-8 md:mt-16" :delay="0.2">
+      <AnimatedSection class="relative z-20 max-w-[1320px] mx-auto px-4 md:px-6 mt-6 md:mt-8" :delay="0.2">
         <LargeTestimonial />
       </AnimatedSection>
       <AnimatedSection
         id="pricing-section"
-        class="relative z-20 max-w-[1320px] mx-auto px-4 md:px-6 mt-8 md:mt-16"
+        class="relative z-20 max-w-[1320px] mx-auto px-4 md:px-6 mt-6 md:mt-8"
         :delay="0.2"
       >
         <PricingSection />
       </AnimatedSection>
       <AnimatedSection
         id="testimonials-section"
-        class="relative z-20 max-w-[1320px] mx-auto px-4 md:px-6 mt-8 md:mt-16"
+        class="relative z-20 max-w-[1320px] mx-auto px-4 md:px-6 mt-6 md:mt-8"
         :delay="0.2"
       >
         <TestimonialGridSection />
       </AnimatedSection>
-      <AnimatedSection id="faq-section" class="relative z-20 max-w-[1320px] mx-auto px-4 md:px-6 mt-8 md:mt-16" :delay="0.2">
+      <AnimatedSection id="faq-section" class="relative z-20 max-w-[1320px] mx-auto px-4 md:px-6 mt-6 md:mt-8" :delay="0.2">
         <FAQSection />
       </AnimatedSection>
-      <AnimatedSection class="relative z-20 max-w-[1320px] mx-auto px-4 md:px-6 mt-8 md:mt-16" :delay="0.2">
+      <AnimatedSection class="relative z-20 max-w-[1320px] mx-auto px-4 md:px-6 mt-6 md:mt-8" :delay="0.2">
         <CTASection />
       </AnimatedSection>
-      </div>
     </div>
     <FooterSection />
   </div>

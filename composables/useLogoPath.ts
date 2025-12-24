@@ -1,12 +1,10 @@
 /**
  * Composable to safely get static asset paths with baseURL handling
  * Ensures assets work correctly in both dev and production (GitHub Pages)
- * 
- * Since baseURL is set to '/shace-landing-page/' in nuxt.config.ts,
- * we need to prefix all static asset paths with the baseURL.
  */
 export const useLogoPath = () => {
-  const BASE_URL = '/shace-landing-page'
+  const config = useRuntimeConfig()
+  const baseURL = config.app.baseURL || '/shace-landing-page/'
   
   /**
    * Get a logo path with proper baseURL handling
@@ -19,8 +17,8 @@ export const useLogoPath = () => {
     // Ensure it's in the logos directory
     const path = cleanName.startsWith('logos/') ? cleanName : `logos/${cleanName}`
     
-    // Always prefix with baseURL to ensure it works in both dev and production
-    return `${BASE_URL}/${path}`
+    // Use Nuxt's baseURL handling
+    return `${baseURL}${path}`
   }
   
   /**
@@ -32,8 +30,8 @@ export const useLogoPath = () => {
     // Remove leading slash if present
     const cleanPath = imagePath.startsWith('/') ? imagePath.slice(1) : imagePath
     
-    // Always prefix with baseURL to ensure it works in both dev and production
-    return `${BASE_URL}/${cleanPath}`
+    // Use Nuxt's baseURL handling
+    return `${baseURL}${cleanPath}`
   }
   
   return {

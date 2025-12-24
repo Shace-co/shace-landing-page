@@ -1,18 +1,17 @@
 <template>
-  <div class="bg-white w-full">
-    <div class="max-w-4xl mx-auto px-6 pt-24 pb-16">
-      <div class="mb-8">
-        <NuxtLink to="/" class="text-primary hover:underline mb-4 inline-block">
-          ← Back to Home
-        </NuxtLink>
-        <h1 class="text-4xl font-bold mb-4 text-gray-900">Privacy Policy</h1>
-        <p class="text-gray-600">Last updated: {{ new Date().toLocaleDateString() }}</p>
-      </div>
+  <div class="min-h-screen flex flex-col">
+    <Header />
+    <main class="flex-1 bg-white">
+      <div class="max-w-4xl mx-auto px-6 pt-24 pb-16">
+        <div class="mb-8">
+          <h1 class="text-4xl font-bold mb-4 text-gray-900">Privacy Policy</h1>
+          <p class="text-gray-600">Last updated: {{ new Date().toLocaleDateString() }}</p>
+        </div>
 
-      <div class="prose prose-slate max-w-none">
-        <section class="mb-8">
-          <h2 class="text-2xl font-semibold mb-4 text-gray-900">1. Introduction</h2>
-          <p class="text-gray-700 mb-4">
+        <div class="prose prose-slate max-w-none">
+          <section class="mb-8">
+            <h2 class="text-2xl font-semibold mb-4 text-gray-900">1. Introduction</h2>
+            <p class="text-gray-700 mb-4">
             Welcome to Shace ("we," "our," or "us"). We are committed to protecting your personal information and your right to privacy. 
             This Privacy Policy explains how we collect, use, disclose, and safeguard your information when you use our space management 
             platform and services.
@@ -122,13 +121,18 @@
           </p>
         </section>
       </div>
-    </div>
+      </div>
+    </main>
+    <FooterSection />
   </div>
 </template>
 
 <script setup lang="ts">
+import Header from '~/components/Header.vue'
+import FooterSection from '~/components/FooterSection.vue'
+
 definePageMeta({
-  layout: 'default'
+  layout: false
 })
 
 useHead({

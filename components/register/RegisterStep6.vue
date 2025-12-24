@@ -1,15 +1,15 @@
 <template>
   <div class="max-w-2xl mx-auto">
-    <h1 class="text-3xl md:text-4xl font-semibold text-primary mb-2">Set Up a Workspace</h1>
+    <h1 class="text-3xl md:text-4xl font-semibold text-primary mb-2">{{ $t('register.step6.title') }}</h1>
     <p class="text-lg text-gray-700 mb-8">
-      A workspace is where your bookings happen — let's configure it.
+      {{ $t('register.step6.subtitle') }}
     </p>
 
     <form @submit.prevent="handleSubmit" class="space-y-6">
       <!-- Workspace Images Upload -->
       <div>
-        <Label class="text-gray-700 mb-2 block">Workspace Images*</Label>
-        <p class="text-sm text-gray-500 mb-3">Upload an image that represents the workspace</p>
+        <Label class="text-gray-700 mb-2 block">{{ $t('register.step6.workspaceImages') }}</Label>
+        <p class="text-sm text-gray-500 mb-3">{{ $t('register.step6.workspaceImagesHint') }}</p>
         <div
           @click="triggerFileInput"
           @dragover.prevent
@@ -24,7 +24,7 @@
             @change="handleFileChange"
             class="hidden"
           />
-          <div class="flex flex-col items-start">
+          <div class="flex flex-col items-center text-center">
             <svg class="w-12 h-12 text-gray-400 mb-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 16a4 4 0 01-.88-7.903A5 5 0 1115.9 6L16 6a5 5 0 011 9.9M15 13l-3-3m0 0l-3 3m3-3v12" />
             </svg>
@@ -41,7 +41,7 @@
       <!-- Workspace Details -->
       <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
         <div>
-          <Label for="workspaceNameEnglish" class="text-gray-700 mb-2 block">Workspace Name in English*</Label>
+          <Label for="workspaceNameEnglish" class="text-gray-700 mb-2 block">{{ $t('register.step6.workspaceNameEn') }}</Label>
           <Input
             id="workspaceNameEnglish"
             v-model="formData.workspaceNameEnglish"
@@ -52,7 +52,7 @@
         </div>
 
         <div>
-          <Label for="workspaceNameArabic" class="text-gray-700 mb-2 block">Workspace Name in Arabic*</Label>
+          <Label for="workspaceNameArabic" class="text-gray-700 mb-2 block">{{ $t('register.step6.workspaceNameAr') }}</Label>
           <Input
             id="workspaceNameArabic"
             v-model="formData.workspaceNameArabic"
@@ -63,7 +63,7 @@
         </div>
 
         <div>
-          <Label for="workspaceEmail" class="text-gray-700 mb-2 block">Workspace Email*</Label>
+          <Label for="workspaceEmail" class="text-gray-700 mb-2 block">{{ $t('register.step6.workspaceEmail') }}</Label>
           <Input
             id="workspaceEmail"
             v-model="formData.workspaceEmail"
@@ -75,7 +75,7 @@
         </div>
 
         <div>
-          <Label for="workspacePhone" class="text-gray-700 mb-2 block">Workspace Phone Number*</Label>
+          <Label for="workspacePhone" class="text-gray-700 mb-2 block">{{ $t('register.step6.workspacePhone') }}</Label>
           <Input
             id="workspacePhone"
             v-model="formData.workspacePhone"
@@ -86,7 +86,7 @@
         </div>
 
         <div>
-          <Label for="meterPrice" class="text-gray-700 mb-2 block">Meter Price*</Label>
+          <Label for="meterPrice" class="text-gray-700 mb-2 block">{{ $t('register.step6.meterPrice') }}</Label>
           <div class="flex">
             <Input
               id="meterPrice"
@@ -103,7 +103,7 @@
         </div>
 
         <div>
-          <Label for="workspaceCrn" class="text-gray-700 mb-2 block">CR Number of the Business*</Label>
+          <Label for="workspaceCrn" class="text-gray-700 mb-2 block">{{ $t('register.step6.workspaceCRN') }}</Label>
           <Input
             id="workspaceCrn"
             v-model="formData.workspaceCrn"
@@ -114,7 +114,7 @@
         </div>
 
         <div>
-          <Label for="workspaceVat" class="text-gray-700 mb-2 block">Tax Identification Number*</Label>
+          <Label for="workspaceVat" class="text-gray-700 mb-2 block">{{ $t('register.step6.workspaceVAT') }}</Label>
           <Input
             id="workspaceVat"
             v-model="formData.workspaceVat"
@@ -130,6 +130,7 @@
           type="button"
           variant="outline"
           @click="previousStep()"
+          class="border-gray-300 bg-gray-100 text-gray-700 hover:bg-gray-200 hover:text-gray-900"
         >
           Back
         </Button>

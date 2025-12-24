@@ -4,23 +4,23 @@
     <div class="bg-white p-8 rounded-lg border border-gray-200">
         <form @submit.prevent="handleSubmit" class="space-y-6">
           <div>
-            <Label for="cardholderName" class="text-gray-700 mb-2 block">Cardholder Name</Label>
+            <Label for="cardholderName" class="text-gray-700 mb-2 block">{{ $t('register.step10.cardholderName') }}</Label>
             <Input
               id="cardholderName"
               v-model="formData.cardholderName"
-              placeholder="Name on Card"
+              :placeholder="$t('register.step10.cardholderPlaceholder')"
               required
               class="w-full"
             />
           </div>
 
           <div>
-            <Label for="cardNumber" class="text-gray-700 mb-2 block">Card Number</Label>
+            <Label for="cardNumber" class="text-gray-700 mb-2 block">{{ $t('register.step10.cardNumber') }}</Label>
             <div class="flex items-center gap-2">
               <Input
                 id="cardNumber"
                 v-model="formData.cardNumber"
-                placeholder="0000 0000 0000"
+                :placeholder="$t('register.step10.cardNumberPlaceholder')"
                 required
                 class="w-full"
                 maxlength="19"
@@ -35,11 +35,11 @@
 
           <div class="grid grid-cols-2 gap-4">
             <div>
-              <Label for="expirationDate" class="text-gray-700 mb-2 block">Expiration Date</Label>
+              <Label for="expirationDate" class="text-gray-700 mb-2 block">{{ $t('register.step10.expirationDate') }}</Label>
               <Input
                 id="expirationDate"
                 v-model="formData.expirationDate"
-                placeholder="MM/YY"
+                :placeholder="$t('register.step10.expirationPlaceholder')"
                 required
                 class="w-full"
                 maxlength="5"
@@ -47,11 +47,11 @@
             </div>
 
             <div>
-              <Label for="securityCode" class="text-gray-700 mb-2 block">Security Code</Label>
+              <Label for="securityCode" class="text-gray-700 mb-2 block">{{ $t('register.step10.securityCode') }}</Label>
               <Input
                 id="securityCode"
                 v-model="formData.securityCode"
-                placeholder="000"
+                :placeholder="$t('register.step10.securityPlaceholder')"
                 required
                 class="w-full"
                 type="password"
@@ -64,7 +64,7 @@
             type="submit"
             class="w-full bg-primary text-white hover:bg-primary/90 py-3 text-base font-medium"
           >
-            GET STARTED FREE
+            {{ $t('register.step10.button') }}
           </Button>
         </form>
     </div>

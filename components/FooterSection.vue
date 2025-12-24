@@ -1,16 +1,17 @@
 <template>
-  <footer class="w-full max-w-[1320px] mx-auto px-4 md:px-5 flex flex-col md:flex-row justify-between items-start gap-8 md:gap-0 py-10 md:py-[70px] bg-transparent backdrop-blur-sm relative z-[100]">
-    <div class="flex flex-col justify-start items-start gap-8 p-4 md:p-8">
+  <footer :class="footerClasses" :style="footerStyle">
+    <div :class="innerContainerClasses">
+      <div class="flex flex-col justify-start items-start gap-8 p-4 md:p-8">
       <div class="flex gap-3 items-stretch justify-center">
         <img
           :src="logoPath"
-          alt="Shace Logo"
+          :alt="$t('footer.logoAlt')"
           width="163"
           height="44"
           class="h-8 w-auto"
         />
       </div>
-      <p class="text-foreground/90 text-sm font-medium leading-[18px] text-left">Space management made effortless</p>
+                 <p class="text-foreground/90 text-sm font-medium leading-[18px] text-left">{{ $t('footer.tagline') }}</p>
       <div class="flex justify-start items-start gap-3">
         <a href="#" aria-label="Twitter" class="w-4 h-4 flex items-center justify-center">
           <svg class="w-full h-full text-muted-foreground" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -31,42 +32,77 @@
     </div>
     <div class="grid grid-cols-2 md:grid-cols-3 gap-8 md:gap-12 p-4 md:p-8 w-full md:w-auto">
       <div class="flex flex-col justify-start items-start gap-3">
-        <h3 class="text-muted-foreground text-sm font-medium leading-5">Product</h3>
+        <h3 class="text-muted-foreground text-sm font-medium leading-5">{{ t('footer.product.title') }}</h3>
         <div class="flex flex-col justify-end items-start gap-2">
-          <a href="#" class="text-foreground text-sm font-normal leading-5 hover:underline">Features</a>
-          <a href="#" class="text-foreground text-sm font-normal leading-5 hover:underline">Pricing</a>
-          <a href="#" class="text-foreground text-sm font-normal leading-5 hover:underline">Office Mapping</a>
-          <a href="#" class="text-foreground text-sm font-normal leading-5 hover:underline">Analytics Dashboard</a>
-          <a href="#" class="text-foreground text-sm font-normal leading-5 hover:underline">Payment Management</a>
+          <a href="#" class="text-foreground text-sm font-normal leading-5 hover:underline">{{ t('footer.product.features') }}</a>
+          <a href="#" class="text-foreground text-sm font-normal leading-5 hover:underline">{{ t('footer.product.pricing') }}</a>
+          <a href="#" class="text-foreground text-sm font-normal leading-5 hover:underline">{{ t('footer.product.officeMapping') }}</a>
+          <a href="#" class="text-foreground text-sm font-normal leading-5 hover:underline">{{ t('footer.product.analyticsDashboard') }}</a>
+          <a href="#" class="text-foreground text-sm font-normal leading-5 hover:underline">{{ t('footer.product.paymentManagement') }}</a>
         </div>
       </div>
       <div class="flex flex-col justify-start items-start gap-3">
-        <h3 class="text-muted-foreground text-sm font-medium leading-5">Company</h3>
+        <h3 class="text-muted-foreground text-sm font-medium leading-5">{{ t('footer.company.title') }}</h3>
         <div class="flex flex-col justify-center items-start gap-2">
-          <a href="#" class="text-foreground text-sm font-normal leading-5 hover:underline">About us</a>
-          <a href="#" class="text-foreground text-sm font-normal leading-5 hover:underline">Our team</a>
-          <a href="#" class="text-foreground text-sm font-normal leading-5 hover:underline">Careers</a>
-          <a href="#" class="text-foreground text-sm font-normal leading-5 hover:underline">Brand</a>
-          <a href="#" class="text-foreground text-sm font-normal leading-5 hover:underline">Contact</a>
+          <a href="#" class="text-foreground text-sm font-normal leading-5 hover:underline">{{ t('footer.company.aboutUs') }}</a>
+          <a href="#" class="text-foreground text-sm font-normal leading-5 hover:underline">{{ t('footer.company.ourTeam') }}</a>
+          <a href="#" class="text-foreground text-sm font-normal leading-5 hover:underline">{{ t('footer.company.careers') }}</a>
+          <a href="#" class="text-foreground text-sm font-normal leading-5 hover:underline">{{ t('footer.company.brand') }}</a>
+          <a href="#" class="text-foreground text-sm font-normal leading-5 hover:underline">{{ t('footer.company.contact') }}</a>
         </div>
       </div>
       <div class="flex flex-col justify-start items-start gap-3">
-        <h3 class="text-muted-foreground text-sm font-medium leading-5">Resources</h3>
+        <h3 class="text-muted-foreground text-sm font-medium leading-5">{{ t('footer.resources.title') }}</h3>
         <div class="flex flex-col justify-center items-start gap-2">
-          <a href="/shace-landing-page/terms-and-conditions" class="text-foreground text-sm font-normal leading-5 hover:underline">Terms and Conditions</a>
-          <a href="/shace-landing-page/privacy-policy" class="text-foreground text-sm font-normal leading-5 hover:underline">Privacy Policy</a>
-          <a href="/shace-landing-page/cancellation-policy" class="text-foreground text-sm font-normal leading-5 hover:underline">Cancellation Policy</a>
-          <a href="#" class="text-foreground text-sm font-normal leading-5 hover:underline">Documentation</a>
-          <a href="#" class="text-foreground text-sm font-normal leading-5 hover:underline">Community</a>
-          <a href="#" class="text-foreground text-sm font-normal leading-5 hover:underline">Support</a>
+          <NuxtLink :to="localePath('/terms-and-conditions')" class="text-foreground text-sm font-normal leading-5 hover:underline">{{ t('footer.resources.terms') }}</NuxtLink>
+          <NuxtLink :to="localePath('/privacy-policy')" class="text-foreground text-sm font-normal leading-5 hover:underline">{{ t('footer.resources.privacy') }}</NuxtLink>
+          <NuxtLink :to="localePath('/cancellation-policy')" class="text-foreground text-sm font-normal leading-5 hover:underline">{{ t('footer.resources.cancellation') }}</NuxtLink>
+          <a href="#" class="text-foreground text-sm font-normal leading-5 hover:underline">{{ t('footer.resources.documentation') }}</a>
+          <a href="#" class="text-foreground text-sm font-normal leading-5 hover:underline">{{ t('footer.resources.community') }}</a>
+          <a href="#" class="text-foreground text-sm font-normal leading-5 hover:underline">{{ t('footer.resources.support') }}</a>
         </div>
       </div>
+    </div>
     </div>
   </footer>
 </template>
 
 <script setup lang="ts">
+import { computed } from 'vue'
+import { useRoute } from 'vue-router'
+import { useI18n, useLocalePath } from '#imports'
+import { useLogoPath } from '~/composables/useLogoPath'
+
+const route = useRoute()
+const { t } = useI18n()
+const localePath = useLocalePath()
 const { getLogoPath } = useLogoPath()
 const logoPath = getLogoPath('shace-logo-white.svg')
+
+// Check if we're on a policy page (only these should have gradient footer)
+const isPolicyPage = computed(() => {
+  const policyPages = ['privacy-policy', 'terms-and-conditions', 'cancellation-policy']
+  const currentPath = route.path.toLowerCase()
+  return policyPages.some(page => currentPath.includes(page))
+})
+
+const footerClasses = computed(() => {
+  const baseClasses = 'w-full relative z-[100]'
+  return baseClasses
+})
+
+const footerStyle = computed(() => {
+  // Policy pages get gradient background, full width
+  if (isPolicyPage.value) {
+    return { background: 'linear-gradient(180deg, hsl(335, 66%, 28%) 0%, hsl(335, 65%, 8%) 100%)' }
+  }
+  // Home page and other pages get transparent background
+  return {}
+})
+
+const innerContainerClasses = computed(() => {
+  // All pages: constrained content width with padding
+  return 'w-full max-w-[1320px] mx-auto px-4 md:px-5 flex flex-col md:flex-row justify-between items-start gap-8 md:gap-0 py-10 md:py-[70px]'
+})
 </script>
 

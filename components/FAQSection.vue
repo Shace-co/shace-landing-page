@@ -4,10 +4,10 @@
     <div class="self-stretch pt-8 pb-8 md:pt-14 md:pb-14 flex flex-col justify-center items-center gap-2 relative z-10">
       <div class="flex flex-col justify-start items-center gap-4">
         <h2 class="w-full max-w-[435px] text-center text-foreground text-4xl font-semibold leading-10 break-words">
-          Frequently Asked Questions
+          {{ $t('faq.title') }}
         </h2>
         <p class="self-stretch text-center text-muted-foreground text-sm font-medium leading-[18.20px] break-words">
-          Everything you need to know about Shace and how it can transform your workspace management
+          {{ $t('faq.subtitle') }}
         </p>
       </div>
     </div>
@@ -58,34 +58,37 @@
 </template>
 
 <script setup lang="ts">
-import { ref } from 'vue'
+import { ref, computed } from 'vue'
+import { useI18n } from '#imports'
 
-const faqData = [
+const { t } = useI18n()
+
+const faqData = computed(() => [
   {
-    question: "What is Shace and who is it for?",
-    answer: "Shace is an all-in-one platform designed to streamline how businesses manage, book, and operate their physical workspaces. Whether you're a co-working space provider, a corporate office, or a flexible space operator, Shace helps you digitize your space management—from bookings and team coordination to access control and usage analytics.",
+    question: t('faq.questions.whatIsShace.question'),
+    answer: t('faq.questions.whatIsShace.answer'),
   },
   {
-    question: "How does Shace help with workspace bookings?",
-    answer: "Shace provides an intuitive booking system that allows team members to easily reserve workspaces, meeting rooms, and shared areas. The platform offers real-time availability, automated confirmations, and smart scheduling to optimize space utilization and reduce conflicts.",
+    question: t('faq.questions.bookings.question'),
+    answer: t('faq.questions.bookings.answer'),
   },
   {
-    question: "Can I integrate Shace with my existing access control systems?",
-    answer: "Yes! Shace offers seamless integrations with popular access control systems and can connect with your existing security infrastructure. Our platform allows you to manage access permissions, track entry/exit, and maintain security compliance across all your workspace locations.",
+    question: t('faq.questions.integration.question'),
+    answer: t('faq.questions.integration.answer'),
   },
   {
-    question: "What's included in the free plan?",
-    answer: "The free plan includes basic booking management, team coordination tools, single workspace location support, up to 10 team members, and basic usage analytics. It's perfect for small teams getting started with workspace digitization.",
+    question: t('faq.questions.freePlan.question'),
+    answer: t('faq.questions.freePlan.answer'),
   },
   {
-    question: "How does Shace improve space utilization?",
-    answer: "Shace provides comprehensive usage analytics that help you understand how your spaces are being used. With real-time data on occupancy rates, peak usage times, and booking patterns, you can make informed decisions to optimize your workspace layout and improve efficiency.",
+    question: t('faq.questions.utilization.question'),
+    answer: t('faq.questions.utilization.answer'),
   },
   {
-    question: "Is my workspace data secure with Shace?",
-    answer: "Absolutely. We use enterprise-grade security measures including end-to-end encryption, secure data transmission, and compliance with industry standards. Your workspace data never leaves your secure environment without your explicit permission, and we offer on-premises deployment options for enterprise customers.",
+    question: t('faq.questions.security.question'),
+    answer: t('faq.questions.security.answer'),
   },
-]
+])
 
 const openItems = ref<Set<number>>(new Set())
 

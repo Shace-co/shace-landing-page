@@ -1,7 +1,7 @@
 <template>
   <section
-    class="flex flex-col items-center text-center relative mx-auto rounded-2xl overflow-hidden my-6 py-0 px-0
-         w-full h-[400px] md:h-[600px] lg:h-[810px]"
+    class="flex flex-col items-center text-center relative overflow-hidden py-0 px-0
+         w-full h-screen"
   >
     <!-- SVG Background -->
     <div class="absolute inset-0 z-0 w-full h-full">
@@ -174,16 +174,16 @@
 
     <div class="relative z-10 space-y-4 md:space-y-5 lg:space-y-6 mb-6 md:mb-7 lg:mb-9 max-w-2xl md:max-w-3xl lg:max-w-4xl mt-16 md:mt-[120px] lg:mt-[160px] px-4 w-full">
       <h1 class="text-foreground text-3xl md:text-4xl lg:text-6xl font-semibold leading-tight">
-        Streamline Your Workspace Management
+        {{ t('hero.title') }}
       </h1>
       <p class="text-muted-foreground text-base md:text-base lg:text-lg font-medium leading-relaxed max-w-2xl mx-auto">
-        An all-in-one platform designed to streamline how businesses manage, book, and operate their physical workspaces—from bookings and team coordination to access control and usage analytics.
+        {{ t('hero.description') }}
       </p>
     </div>
 
     <NuxtLink to="/register" class="relative z-10">
       <Button class="bg-secondary text-secondary-foreground hover:bg-secondary/95 px-8 py-3 rounded-full font-medium text-base shadow-lg ring-1 ring-white/10 transition-all duration-200">
-        Signup for free
+        {{ t('hero.signupButton') }}
       </Button>
     </NuxtLink>
   </section>
@@ -191,7 +191,10 @@
 
 <script setup lang="ts">
 import { computed } from 'vue'
+import { useI18n } from '#imports'
 import Button from '~/components/ui/Button.vue'
+
+const { t } = useI18n()
 
 // Generate grid rectangles
 const gridRects = computed(() => {

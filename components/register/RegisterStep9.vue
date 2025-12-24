@@ -1,15 +1,15 @@
 <template>
   <div class="max-w-2xl mx-auto">
-    <h1 class="text-3xl md:text-4xl font-semibold text-primary mb-2">Upload Your Floor Layout</h1>
+    <h1 class="text-3xl md:text-4xl font-semibold text-primary mb-2">{{ $t('register.step9.title') }}</h1>
     <p class="text-lg text-gray-700 mb-8">
-      We'll convert it into an interactive map for easy booking and management.
+      {{ $t('register.step9.subtitle') }}
     </p>
 
     <form @submit.prevent="handleSubmit" class="space-y-6">
       <!-- Floor Plan Upload -->
       <div v-for="(plan, index) in floorPlans" :key="index" class="space-y-4 p-4 border border-gray-200 rounded-lg">
         <div>
-          <Label class="text-gray-700 mb-2 block">Upload Floor Plan*</Label>
+          <Label class="text-gray-700 mb-2 block">{{ $t('register.step9.floorPlanLabel') }}</Label>
           <div
             @click="triggerFileInput(index)"
             @dragover.prevent
@@ -23,7 +23,7 @@
               @change="(e) => handleFileChange(e, index)"
               class="hidden"
             />
-            <div class="flex flex-col items-start">
+            <div class="flex flex-col items-center text-center">
               <svg class="w-12 h-12 text-gray-400 mb-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 16a4 4 0 01-.88-7.903A5 5 0 1115.9 6L16 6a5 5 0 011 9.9M15 13l-3-3m0 0l-3 3m3-3v12" />
               </svg>
@@ -39,7 +39,7 @@
 
         <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
           <div>
-            <Label :for="`floor-name-en-${index}`" class="text-gray-700 mb-2 block">Floor Name in English *</Label>
+            <Label :for="`floor-name-en-${index}`" class="text-gray-700 mb-2 block">{{ $t('register.step9.floorNameEn') }}</Label>
             <Input
               :id="`floor-name-en-${index}`"
               v-model="plan.nameEnglish"
@@ -50,7 +50,7 @@
           </div>
 
           <div>
-            <Label :for="`floor-name-ar-${index}`" class="text-gray-700 mb-2 block">Floor Name in Arabic *</Label>
+            <Label :for="`floor-name-ar-${index}`" class="text-gray-700 mb-2 block">{{ $t('register.step9.floorNameAr') }}</Label>
             <Input
               :id="`floor-name-ar-${index}`"
               v-model="plan.nameArabic"
@@ -62,7 +62,7 @@
         </div>
 
         <div>
-          <Label :for="`floor-level-${index}`" class="text-gray-700 mb-2 block">Floor Level*</Label>
+          <Label :for="`floor-level-${index}`" class="text-gray-700 mb-2 block">{{ $t('register.step9.floorLevel') }}</Label>
           <Input
             :id="`floor-level-${index}`"
             v-model="plan.level"
@@ -78,9 +78,9 @@
           type="button"
           variant="outline"
           @click="addFloorPlan"
-          class="border-primary text-primary hover:bg-primary/10"
+          class="border-gray-300 bg-gray-100 text-gray-700 hover:bg-gray-200 hover:text-gray-900"
         >
-          + ADD FLOOR PLAN
+          {{ $t('register.step9.addFloorPlan') }}
         </Button>
         <div class="flex gap-4">
           <Button
@@ -89,13 +89,13 @@
             @click="skipStep"
             class="text-gray-600"
           >
-            Skip and upload later
+            {{ $t('register.step9.skip') }}
           </Button>
           <Button
             type="submit"
             class="bg-primary text-white hover:bg-primary/90 px-8 uppercase"
           >
-            UPLOAD FLOOR PLAN
+            {{ $t('register.step9.uploadButton') }}
           </Button>
         </div>
       </div>

@@ -1,25 +1,25 @@
 <template>
   <div class="max-w-4xl mx-auto">
-    <h1 class="text-3xl md:text-4xl font-semibold text-primary mb-2">Workspace Location</h1>
+    <h1 class="text-3xl md:text-4xl font-semibold text-primary mb-2">{{ $t('register.step7.title') }}</h1>
     <p class="text-lg text-gray-700 mb-8">
-      Help clients navigate by <strong>sharing exact workspace address.</strong>
+      {{ $t('register.step7.subtitle') }} <strong>{{ $t('register.step7.subtitleBold') }}</strong>
     </p>
 
     <form @submit.prevent="handleSubmit" class="space-y-6">
       <!-- Map Section -->
       <div>
-        <Label class="text-gray-700 mb-2 block font-semibold">Pin your exact workspace location*</Label>
-        <p class="text-sm text-gray-500 mb-4">to help customers find you easily</p>
+        <Label class="text-gray-700 mb-2 block font-semibold">{{ $t('register.step7.mapLabel') }}</Label>
+        <p class="text-sm text-gray-500 mb-4">{{ $t('register.step7.mapHint') }}</p>
         
         <!-- Map Placeholder -->
         <div class="border-2 border-gray-200 rounded-lg h-96 bg-gray-100 relative overflow-hidden">
-          <div class="absolute inset-0 flex items-center justify-start pl-4">
-            <div class="text-left">
+          <div class="absolute inset-0 flex items-center justify-center">
+            <div class="text-center">
               <svg class="w-16 h-16 text-gray-400 mx-auto mb-4" fill="currentColor" viewBox="0 0 20 20">
                 <path fill-rule="evenodd" d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z" clip-rule="evenodd" />
               </svg>
-              <p class="text-gray-600">Map will be integrated here</p>
-              <p class="text-sm text-gray-500 mt-2">Click to set location</p>
+              <p class="text-gray-600">{{ $t('register.step7.mapPlaceholder') }}</p>
+              <p class="text-sm text-gray-500 mt-2">{{ $t('register.step7.mapClick') }}</p>
             </div>
           </div>
           <!-- Map Pin -->
@@ -34,7 +34,7 @@
       <!-- Address Fields -->
       <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
         <div>
-          <Label for="workspaceAddressEnglish" class="text-gray-700 mb-2 block">Address in English *</Label>
+          <Label for="workspaceAddressEnglish" class="text-gray-700 mb-2 block">{{ $t('register.step7.addressEn') }}</Label>
           <Input
             id="workspaceAddressEnglish"
             v-model="formData.workspaceAddressEnglish"
@@ -45,7 +45,7 @@
         </div>
 
         <div>
-          <Label for="workspaceAddressArabic" class="text-gray-700 mb-2 block">Address in Arabic *</Label>
+          <Label for="workspaceAddressArabic" class="text-gray-700 mb-2 block">{{ $t('register.step7.addressAr') }}</Label>
           <Input
             id="workspaceAddressArabic"
             v-model="formData.workspaceAddressArabic"
@@ -61,14 +61,15 @@
           type="button"
           variant="outline"
           @click="previousStep()"
+          class="border-gray-300 bg-gray-100 text-gray-700 hover:bg-gray-200 hover:text-gray-900"
         >
-          Back
+          {{ $t('register.back') }}
         </Button>
         <Button
           type="submit"
           class="bg-primary text-white hover:bg-primary/90 px-8"
         >
-          NEXT
+          {{ $t('register.next') }}
         </Button>
       </div>
     </form>

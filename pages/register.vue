@@ -12,7 +12,7 @@
         <NuxtLink to="/" class="flex items-center gap-3 mb-8">
           <img
             :src="logoPath"
-            alt="Shace Logo"
+            :alt="$t('header.logoAlt')"
             width="163"
             height="44"
             class="h-8 w-auto"
@@ -23,16 +23,16 @@
       <!-- Marketing Content -->
       <div class="relative z-10 flex-1 flex flex-col justify-center">
         <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 leading-tight">
-          Effortlessly manage your workspace and operations.
+          {{ $t('register.title') }}
         </h1>
         <p class="text-xl md:text-2xl text-white/90 mb-8 leading-relaxed">
-          Complete your registration to access your workspace management dashboard and streamline your operations.
+          {{ $t('register.description') }}
         </p>
         
         <!-- Progress Indicator for Desktop -->
         <div class="mt-12">
           <div class="mb-4 flex items-center justify-between">
-            <span class="text-sm font-medium text-white/80">Registration Progress</span>
+            <span class="text-sm font-medium text-white/80">{{ $t('register.progress') }}</span>
             <span class="text-lg font-bold">{{ Math.round((currentStep / totalSteps) * 100) }}%</span>
           </div>
           <div class="h-2 bg-white/20 rounded-full overflow-hidden">
@@ -46,8 +46,8 @@
 
       <!-- Footer -->
       <div class="relative z-10 flex items-center justify-between text-sm text-white/70">
-        <span>Copyright © {{ new Date().getFullYear() }} Shace Enterprises LTD.</span>
-        <NuxtLink to="/privacy-policy" class="hover:text-white transition-colors">Privacy Policy</NuxtLink>
+        <span>{{ $t('signIn.copyright') }} {{ new Date().getFullYear() }} Shace Enterprises LTD.</span>
+        <NuxtLink :to="localePath('/privacy-policy')" class="hover:text-white transition-colors">{{ $t('signIn.privacyPolicy') }}</NuxtLink>
       </div>
     </div>
 
@@ -70,7 +70,7 @@
         <!-- Mobile Progress -->
         <div class="lg:hidden mb-8">
           <div class="mb-4 flex items-center justify-between">
-            <span class="text-sm font-medium text-gray-600">Progress</span>
+            <span class="text-sm font-medium text-gray-600">{{ $t('register.mobileProgress') }}</span>
             <span class="text-sm font-semibold text-primary">{{ Math.round((currentStep / totalSteps) * 100) }}%</span>
           </div>
           <div class="h-2 bg-gray-200 rounded-full overflow-hidden">
@@ -127,6 +127,36 @@
           </div>
         </Transition>
 
+        <!-- Navigation Buttons -->
+        <div class="mt-8 pt-6 border-t border-gray-200 flex items-center justify-between">
+          <Button
+            v-if="currentStep > 1"
+            type="button"
+            variant="outline"
+            @click="previousStep()"
+            class="px-6 transition-all border-gray-300 bg-gray-100 text-gray-700 hover:bg-gray-200 hover:text-gray-900"
+          >
+            <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
+            </svg>
+            {{ $t('register.back') }}
+          </Button>
+          <div v-else></div>
+          
+          <Button
+            v-if="currentStep < totalSteps"
+            type="button"
+            @click="nextStep()"
+            class="bg-primary text-white hover:bg-primary/95 px-8 transition-all shadow-lg hover:shadow-xl"
+          >
+            {{ $t('register.next') }}
+            <svg class="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+            </svg>
+          </Button>
+          <div v-else></div>
+        </div>
+
       </div>
     </div>
   </div>
@@ -136,6 +166,8 @@
 import { computed } from 'vue'
 import { useRegistration } from '~/composables/useRegistration'
 import { useLogoPath } from '~/composables/useLogoPath'
+import { useLocalePath } from '#imports'
+import Button from '~/components/ui/Button.vue'
 import RegisterStep1 from '~/components/register/RegisterStep1.vue'
 import RegisterStep2 from '~/components/register/RegisterStep2.vue'
 import RegisterStep3 from '~/components/register/RegisterStep3.vue'
@@ -154,6 +186,7 @@ definePageMeta({
 const { currentStep, totalSteps, nextStep, previousStep, goToStep } = useRegistration()
 const { getLogoPath } = useLogoPath()
 const logoPath = getLogoPath('shace-logo-white.svg')
+const localePath = useLocalePath()
 
 const stepProps = computed(() => ({
   previous: previousStep,

@@ -1,15 +1,15 @@
 <template>
   <div class="max-w-2xl mx-auto">
-    <h1 class="text-3xl md:text-4xl font-semibold text-primary mb-2">Set Up Your Company</h1>
+    <h1 class="text-3xl md:text-4xl font-semibold text-primary mb-2">{{ $t('register.step3.title') }}</h1>
     <p class="text-lg text-gray-700 mb-8">
-      Tell us about your business. <strong>This helps us personalize your experience.</strong>
+      {{ $t('register.step3.subtitle') }} <strong>{{ $t('register.step3.subtitleBold') }}</strong>
     </p>
 
     <form @submit.prevent="handleSubmit" class="space-y-6">
       <!-- Company Image Upload -->
       <div>
-        <Label class="text-gray-700 mb-2 block">Company Image*</Label>
-        <p class="text-sm text-gray-500 mb-3">Upload an image that represents your company, workspace, or branding.</p>
+        <Label class="text-gray-700 mb-2 block">{{ $t('register.step3.companyImageLabel') }}</Label>
+        <p class="text-sm text-gray-500 mb-3">{{ $t('register.step3.companyImageHint') }}</p>
         <div
           @click="triggerFileInput"
           @dragover.prevent="isDragging = true"
@@ -29,7 +29,7 @@
             @change="handleFileChange"
             class="hidden"
           />
-          <div class="flex flex-col items-start">
+          <div class="flex flex-col items-center text-center">
             <svg 
               :class="[
                 'w-12 h-12 mb-4 transition-all duration-200',
@@ -42,16 +42,16 @@
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 16a4 4 0 01-.88-7.903A5 5 0 1115.9 6L16 6a5 5 0 011 9.9M15 13l-3-3m0 0l-3 3m3-3v12" />
             </svg>
             <p v-if="!formData.companyImage" class="text-sm text-gray-600">
-              Click to Upload or drag and drop
+              {{ $t('register.step3.uploadClick') }}
             </p>
             <p v-else class="text-sm text-primary font-medium flex items-center gap-2">
               <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
               </svg>
-              File selected: {{ formData.companyImage.name }}
+              {{ $t('register.step3.fileSelected') }} {{ formData.companyImage.name }}
             </p>
             <p class="text-xs text-gray-500 mt-1">
-              SVG, PNG or JPG (MAX. 800x400px)
+              {{ $t('register.step3.fileFormat') }}
             </p>
           </div>
         </div>
@@ -59,7 +59,7 @@
 
       <!-- Company Name English -->
       <div>
-        <Label for="companyNameEnglish" class="text-gray-700 mb-2 block">Company Name in English*</Label>
+        <Label for="companyNameEnglish" class="text-gray-700 mb-2 block">{{ $t('register.step3.companyNameEn') }}</Label>
         <Input
           id="companyNameEnglish"
           v-model="formData.companyNameEnglish"
@@ -71,7 +71,7 @@
 
       <!-- Company Name Arabic -->
       <div>
-        <Label for="companyNameArabic" class="text-gray-700 mb-2 block">Company Name in Arabic*</Label>
+        <Label for="companyNameArabic" class="text-gray-700 mb-2 block">{{ $t('register.step3.companyNameAr') }}</Label>
         <Input
           id="companyNameArabic"
           v-model="formData.companyNameArabic"
@@ -83,7 +83,7 @@
 
       <!-- Company Domain -->
       <div>
-        <Label for="companyDomain" class="text-gray-700 mb-2 block">Preferred Company Domain*</Label>
+        <Label for="companyDomain" class="text-gray-700 mb-2 block">{{ $t('register.step3.companyDomain') }}</Label>
         <Input
           id="companyDomain"
           v-model="formData.companyDomain"
@@ -95,7 +95,7 @@
 
       <!-- CRN -->
       <div>
-        <Label for="crn" class="text-gray-700 mb-2 block">Commercial Registration Number (CRN)*</Label>
+        <Label for="crn" class="text-gray-700 mb-2 block">{{ $t('register.step3.crn') }}</Label>
         <Input
           id="crn"
           v-model="formData.crn"
@@ -119,7 +119,7 @@
 
       <!-- Business Phone -->
       <div>
-        <Label for="businessPhone" class="text-gray-700 mb-2 block">Business Phone Number*</Label>
+        <Label for="businessPhone" class="text-gray-700 mb-2 block">{{ $t('register.step3.businessPhone') }}</Label>
         <Input
           id="businessPhone"
           v-model="formData.businessPhone"
@@ -134,7 +134,7 @@
           type="button"
           variant="outline"
           @click="previousStep()"
-          class="px-6 transition-all"
+          class="px-6 transition-all border-gray-300 bg-gray-100 text-gray-700 hover:bg-gray-200 hover:text-gray-900"
         >
           <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />

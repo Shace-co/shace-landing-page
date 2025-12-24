@@ -3,10 +3,10 @@
     <div class="self-stretch relative flex flex-col justify-center items-center gap-2 py-0">
       <div class="flex flex-col justify-start items-center gap-4">
         <h2 class="text-center text-foreground text-4xl md:text-5xl font-semibold leading-tight md:leading-[40px]">
-          Simple, transparent pricing
+          {{ $t('pricing.title') }}
         </h2>
         <p class="self-stretch text-center text-muted-foreground text-sm font-medium leading-tight">
-          One plan with everything you need to manage your workspace efficiently.
+          {{ $t('pricing.subtitle') }}
         </p>
       </div>
       <div class="pt-4">
@@ -24,7 +24,7 @@
                 isAnnual ? 'text-foreground' : 'text-muted-foreground',
               ]"
             >
-              Annually
+              {{ $t('pricing.annually') }}
             </span>
           </button>
           <button
@@ -40,7 +40,7 @@
                 !isAnnual ? 'text-foreground' : 'text-muted-foreground',
               ]"
             >
-              Monthly
+              {{ $t('pricing.monthly') }}
             </span>
           </button>
         </div>
@@ -70,7 +70,7 @@
                 class="ml-2 px-2 overflow-hidden rounded-full justify-center items-center gap-2.5 inline-flex mt-0 py-0.5 bg-gradient-to-b from-primary-light/50 to-primary-light bg-white"
               >
                 <div class="text-center text-primary-foreground text-xs font-normal leading-tight break-words">
-                  Popular
+                  {{ $t('pricing.popular') }}
                 </div>
               </span>
             </div>
@@ -112,7 +112,7 @@
                     plan.popular ? 'text-primary-foreground/70' : 'text-zinc-400',
                   ]"
                 >
-                  /month
+                  {{ $t('pricing.perMonth') }}
                 </div>
               </div>
               <div
@@ -151,9 +151,9 @@
               'self-stretch text-sm font-medium leading-tight',
               plan.popular ? 'text-primary-foreground/70' : 'text-muted-foreground',
             ]"
-          >
-            Everything included:
-          </div>
+            >
+              {{ $t('pricing.everythingIncluded') }}
+            </div>
           <div class="self-stretch flex flex-col justify-start items-start gap-3">
             <div
               v-for="feature in plan.features"
@@ -191,35 +191,37 @@
 </template>
 
 <script setup lang="ts">
-import { ref } from 'vue'
+import { ref, computed } from 'vue'
+import { useI18n } from '#imports'
 import Button from '~/components/ui/Button.vue'
 
+const { t } = useI18n()
 const isAnnual = ref(true)
 
-const pricingPlans = [
+const pricingPlans = computed(() => [
   {
-    name: "Shace",
+    name: t('pricing.plan.name'),
     monthlyPrice: "SAR 20",
     annualPrice: "SAR 16",
-    description: "Complete workspace management solution for businesses of all sizes.",
+    description: t('pricing.plan.description'),
     features: [
-      "Interactive office mapping",
-      "Multi-branch support",
-      "Tenant registration & CRM",
-      "Workspace insights & occupancy dashboard",
-      "Custom rent sheets & payment management",
-      "WhatsApp integration",
-      "Access control integration",
-      "Lease period tracking",
-      "Performance metrics",
-      "Dynamic reports",
-      "User activity logs",
-      "Data backup & privacy compliance",
+      t('pricing.plan.features.interactiveMapping'),
+      t('pricing.plan.features.multiBranch'),
+      t('pricing.plan.features.tenantCRM'),
+      t('pricing.plan.features.insights'),
+      t('pricing.plan.features.rentSheets'),
+      t('pricing.plan.features.whatsapp'),
+      t('pricing.plan.features.accessControl'),
+      t('pricing.plan.features.leaseTracking'),
+      t('pricing.plan.features.metrics'),
+      t('pricing.plan.features.reports'),
+      t('pricing.plan.features.activityLogs'),
+      t('pricing.plan.features.backup'),
     ],
-    buttonText: "Get Started",
+    buttonText: t('pricing.getStarted'),
     buttonClass: "bg-primary-foreground shadow-[0px_1px_1px_-0.5px_rgba(16,24,40,0.20)] text-primary text-shadow-[0px_1px_1px_rgba(16,24,40,0.08)] hover:bg-primary-foreground/90",
     popular: true,
   },
-]
+])
 </script>
 

@@ -1,0 +1,290 @@
+{
+  "header": {
+    "logoAlt": "Shace Logo",
+    "features": "Features",
+    "pricing": "Pricing",
+    "testimonials": "Testimonials",
+    "signIn": "Sign In",
+    "tryForFree": "Try for Free",
+    "toggleNav": "Toggle navigation"
+  },
+  "hero": {
+    "title": "Streamline Your Workspace Management",
+    "description": "An all-in-one platform designed to streamline how businesses manage, book, and operate their physical workspaces—from bookings and team coordination to access control and usage analytics.",
+    "signupButton": "Signup for free"
+  },
+  "cta": {
+    "title": "Space management made effortless",
+    "description": "Whether you're a co-working space provider, a corporate office, or a flexible space operator, Shace helps you digitize your space management and improve utilization for both employees and visitors.",
+    "button": "Signup for free"
+  },
+  "pricing": {
+    "title": "Simple, transparent pricing",
+    "subtitle": "One plan with everything you need to manage your workspace efficiently.",
+    "annually": "Annually",
+    "monthly": "Monthly",
+    "popular": "Popular",
+    "perMonth": "/month",
+    "everythingIncluded": "Everything included:",
+    "getStarted": "Get Started",
+    "plan": {
+      "name": "Shace",
+      "description": "Complete workspace management solution for businesses of all sizes.",
+      "features": {
+        "interactiveMapping": "Interactive office mapping",
+        "multiBranch": "Multi-branch support",
+        "tenantCRM": "Tenant registration & CRM",
+        "insights": "Workspace insights & occupancy dashboard",
+        "rentSheets": "Custom rent sheets & payment management",
+        "whatsapp": "WhatsApp integration",
+        "accessControl": "Access control integration",
+        "leaseTracking": "Lease period tracking",
+        "metrics": "Performance metrics",
+        "reports": "Dynamic reports",
+        "activityLogs": "User activity logs",
+        "backup": "Data backup & privacy compliance"
+      }
+    }
+  },
+  "bento": {
+    "title": "Empower Your Workspace Management",
+    "subtitle": "From interactive office mapping to financial management, Shace provides everything you need to digitize and optimize your workspace operations.",
+    "cards": {
+      "officeMapping": {
+        "title": "Interactive Office Mapping",
+        "description": "Visualize your space layout, assign offices, and manage reservations using an interactive floor plan interface."
+      },
+      "insights": {
+        "title": "Workspace Insights & Occupancy Dashboard",
+        "description": "Get real-time insights on occupancy rates, tenant turnover, and space utilization trends."
+      },
+      "multiBranch": {
+        "title": "Multi-Branch Support",
+        "description": "Manage multiple buildings or floors under one unified platform with ease."
+      },
+      "tenantCRM": {
+        "title": "Tenant Registration & CRM",
+        "description": "Onboard new tenants with streamlined forms and keep their profiles and documentation organized."
+      },
+      "payments": {
+        "title": "Custom Rent Sheets & Payments",
+        "description": "Set pricing per office or desk, assign discounts, and manage monthly payment schedules with VAT and invoice management."
+      },
+      "whatsapp": {
+        "title": "WhatsApp Integration",
+        "description": "Send automated payment reminders, announcements, or one-on-one messages to tenants directly through WhatsApp."
+      }
+    }
+  },
+  "faq": {
+    "title": "Frequently Asked Questions",
+    "subtitle": "Everything you need to know about Shace and how it can transform your workspace management",
+    "questions": {
+      "whatIsShace": {
+        "question": "What is Shace and who is it for?",
+        "answer": "Shace is an all-in-one platform designed to streamline how businesses manage, book, and operate their physical workspaces. Whether you're a co-working space provider, a corporate office, or a flexible space operator, Shace helps you digitize your space management—from bookings and team coordination to access control and usage analytics."
+      },
+      "bookings": {
+        "question": "How does Shace help with workspace bookings?",
+        "answer": "Shace provides an intuitive booking system that allows team members to easily reserve workspaces, meeting rooms, and shared areas. The platform offers real-time availability, automated confirmations, and smart scheduling to optimize space utilization and reduce conflicts."
+      },
+      "integration": {
+        "question": "Can I integrate Shace with my existing access control systems?",
+        "answer": "Yes! Shace offers seamless integrations with popular access control systems and can connect with your existing security infrastructure. Our platform allows you to manage access permissions, track entry/exit, and maintain security compliance across all your workspace locations."
+      },
+      "freePlan": {
+        "question": "What's included in the free plan?",
+        "answer": "The free plan includes basic booking management, team coordination tools, single workspace location support, up to 10 team members, and basic usage analytics. It's perfect for small teams getting started with workspace digitization."
+      },
+      "utilization": {
+        "question": "How does Shace improve space utilization?",
+        "answer": "Shace provides comprehensive usage analytics that help you understand how your spaces are being used. With real-time data on occupancy rates, peak usage times, and booking patterns, you can make informed decisions to optimize your workspace layout and improve efficiency."
+      },
+      "security": {
+        "question": "Is my workspace data secure with Shace?",
+        "answer": "Absolutely. We use enterprise-grade security measures including end-to-end encryption, secure data transmission, and compliance with industry standards. Your workspace data never leaves your secure environment without your explicit permission, and we offer on-premises deployment options for enterprise customers."
+      }
+    }
+  },
+  "footer": {
+    "logoAlt": "Shace Logo",
+    "tagline": "Space management made effortless",
+    "product": {
+      "title": "Product",
+      "features": "Features",
+      "pricing": "Pricing",
+      "officeMapping": "Office Mapping",
+      "analyticsDashboard": "Analytics Dashboard",
+      "paymentManagement": "Payment Management"
+    },
+    "company": {
+      "title": "Company",
+      "aboutUs": "About us",
+      "ourTeam": "Our team",
+      "careers": "Careers",
+      "brand": "Brand",
+      "contact": "Contact"
+    },
+    "resources": {
+      "title": "Resources",
+      "terms": "Terms and Conditions",
+      "privacy": "Privacy Policy",
+      "cancellation": "Cancellation Policy",
+      "documentation": "Documentation",
+      "community": "Community",
+      "support": "Support"
+    }
+  },
+  "signIn": {
+    "title": "Welcome back to Shace.",
+    "description": "Sign in to access your workspace management dashboard and continue managing your operations.",
+    "emailLabel": "Email address",
+    "emailPlaceholder": "Enter your email",
+    "passwordLabel": "Password",
+    "forgotPassword": "Forgotten your password?",
+    "passwordPlaceholder": "Enter your password",
+    "rememberMe": "Remember me",
+    "signInButton": "Sign in",
+    "signingIn": "Signing in...",
+    "noAccount": "Don't have an account?",
+    "signUp": "Sign up",
+    "invalidEmail": "Please enter a valid email address",
+    "copyright": "Copyright ©",
+    "privacyPolicy": "Privacy Policy"
+  },
+  "register": {
+    "title": "Effortlessly manage your workspace and operations.",
+    "description": "Complete your registration to access your workspace management dashboard and streamline your operations.",
+    "progress": "Registration Progress",
+    "mobileProgress": "Progress",
+    "back": "Back",
+    "next": "Next",
+    "step1": {
+      "title": "Get Started with Shace",
+      "subtitle": "Start your journey",
+      "subtitleBold": "toward seamless workspace management.",
+      "emailLabel": "Business Email*",
+      "emailHint": "This will be used as your account login email.",
+      "emailPlaceholder": "Example: info at shace.co",
+      "termsAgree": "I agree with the",
+      "termsLink": "terms and conditions.",
+      "button": "SEND LOGIN LINK",
+      "sending": "Sending...",
+      "invalidEmail": "Please enter a valid email address"
+    },
+    "step2": {
+      "title": "Check Your Inbox! 🎉",
+      "sentTo": "We've sent a secure login link",
+      "to": "to:",
+      "instruction": "Click the link in your email to continue setting up your account.",
+      "tip": "💡 Tip:",
+      "tipText": "Check your spam folder if you don't see it in your inbox.",
+      "noEmail": "Didn't receive the email?",
+      "resend": "resend the email",
+      "resending": "Sending..."
+    },
+    "step3": {
+      "title": "Set Up Your Company",
+      "subtitle": "Tell us about your business.",
+      "subtitleBold": "This helps us personalize your experience.",
+      "companyImageLabel": "Company Image*",
+      "companyImageHint": "Upload an image that represents your company, workspace, or branding.",
+      "uploadClick": "Click to Upload or drag and drop",
+      "fileSelected": "File selected:",
+      "fileFormat": "SVG, PNG or JPG (MAX. 800x400px)",
+      "companyNameEn": "Company Name in English*",
+      "companyNameAr": "Company Name in Arabic*",
+      "companyDomain": "Preferred Company Domain*",
+      "crn": "Commercial Registration Number (CRN)*",
+      "vat": "VAT Number*",
+      "businessPhone": "Business Phone Number*"
+    },
+    "step4": {
+      "title": "Where Is Your Business Located?",
+      "subtitle": "Pin your location and enter address details to help customers find you.",
+      "mapLabel": "Pin your exact business location*",
+      "mapHint": "to help customers find you easily",
+      "mapPlaceholder": "Map will be integrated here",
+      "mapClick": "Click to set location",
+      "addressEn": "Address in English *",
+      "addressAr": "Address in Arabic *"
+    },
+    "step5": {
+      "title": "Add Your Team",
+      "subtitle": "Invite admins or staff members who will",
+      "subtitleBold": "help",
+      "subtitleEnd": "manage your company account.",
+      "userName": "User Full Name *",
+      "userEmail": "Email*",
+      "roleLabel": "Role & Permission Level",
+      "selectRole": "Select a role",
+      "roleOwner": "Owner",
+      "roleAdmin": "Admin",
+      "roleManager": "Manager",
+      "roleStaff": "Staff",
+      "addMore": "+ ADD MORE USERS",
+      "skip": "Skip for Now"
+    },
+    "step6": {
+      "title": "Set Up a Workspace",
+      "subtitle": "A workspace is where your bookings happen — let's configure it.",
+      "workspaceImages": "Workspace Images*",
+      "workspaceImagesHint": "Upload an image that represents the workspace",
+      "workspaceNameEn": "Workspace Name in English*",
+      "workspaceNameAr": "Workspace Name in Arabic*",
+      "workspaceEmail": "Workspace Email*",
+      "workspacePhone": "Workspace Phone Number*",
+      "meterPrice": "Meter Price*",
+      "workspaceCRN": "Workspace CRN*",
+      "workspaceVAT": "Workspace VAT Number*"
+    },
+    "step7": {
+      "title": "Workspace Location",
+      "subtitle": "Help clients navigate by",
+      "subtitleBold": "sharing exact workspace address.",
+      "mapLabel": "Pin your exact workspace location*",
+      "mapHint": "to help customers find you easily",
+      "mapPlaceholder": "Map will be integrated here",
+      "mapClick": "Click to set location",
+      "addressEn": "Address in English *",
+      "addressAr": "Address in Arabic *"
+    },
+    "step8": {
+      "title": "Assign Workspace Managers",
+      "subtitle": "Who will be managing",
+      "subtitleBold": "this workspace",
+      "subtitleEnd": "?",
+      "nameLabel": "Name *",
+      "emailLabel": "Email *",
+      "roleLabel": "Role & Permission Level",
+      "selectRole": "Select a role",
+      "roleManager": "Manager",
+      "roleAdmin": "Admin",
+      "roleSupervisor": "Supervisor",
+      "addUser": "ADD USER",
+      "skip": "Skip for Now"
+    },
+    "step9": {
+      "title": "Upload Your Floor Layout",
+      "subtitle": "We'll convert it into an interactive map for easy booking and management.",
+      "floorPlanLabel": "Upload Floor Plan*",
+      "floorNameEn": "Floor Name in English *",
+      "floorNameAr": "Floor Name in Arabic *",
+      "floorLevel": "Floor Level*",
+      "addFloorPlan": "+ ADD FLOOR PLAN",
+      "skip": "Skip and upload later",
+      "uploadButton": "UPLOAD FLOOR PLAN"
+    },
+    "step10": {
+      "cardholderName": "Cardholder Name",
+      "cardholderPlaceholder": "Name on Card",
+      "cardNumber": "Card Number",
+      "cardNumberPlaceholder": "0000 0000 0000",
+      "expirationDate": "Expiration Date",
+      "expirationPlaceholder": "MM/YY",
+      "securityCode": "Security Code",
+      "securityPlaceholder": "000",
+      "button": "GET STARTED FREE"
+    }
+  }
+}

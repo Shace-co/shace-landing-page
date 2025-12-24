@@ -12,7 +12,7 @@
         <NuxtLink to="/" class="flex items-center gap-3 mb-8">
           <img
             :src="logoPath"
-            alt="Shace Logo"
+            :alt="$t('header.logoAlt')"
             width="163"
             height="44"
             class="h-8 w-auto"
@@ -23,17 +23,17 @@
       <!-- Marketing Content -->
       <div class="relative z-10 flex-1 flex flex-col justify-center">
         <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 leading-tight">
-          Welcome back to Shace.
+          {{ $t('signIn.title') }}
         </h1>
         <p class="text-xl md:text-2xl text-white/90 mb-8 leading-relaxed">
-          Sign in to access your workspace management dashboard and continue managing your operations.
+          {{ $t('signIn.description') }}
         </p>
       </div>
 
       <!-- Footer -->
       <div class="relative z-10 flex items-center justify-between text-sm text-white/70">
-        <span>Copyright © {{ new Date().getFullYear() }} Shace Enterprises LTD.</span>
-        <NuxtLink to="/privacy-policy" class="hover:text-white transition-colors">Privacy Policy</NuxtLink>
+        <span>{{ $t('signIn.copyright') }} {{ new Date().getFullYear() }} Shace Enterprises LTD.</span>
+        <NuxtLink :to="localePath('/privacy-policy')" class="hover:text-white transition-colors">{{ $t('signIn.privacyPolicy') }}</NuxtLink>
       </div>
     </div>
 
@@ -59,14 +59,14 @@
             <!-- Email Field -->
             <div>
               <Label for="email" class="text-gray-900 mb-2 block text-sm font-medium">
-                Email address <span class="text-red-500">*</span>
+                {{ $t('signIn.emailLabel') }} <span class="text-red-500">*</span>
               </Label>
               <Input
                 id="email"
                 ref="emailInput"
                 v-model="formData.email"
                 type="email"
-                placeholder="Enter your email"
+                :placeholder="$t('signIn.emailPlaceholder')"
                 required
                 :class="[
                   'w-full transition-all',
@@ -79,7 +79,7 @@
                 <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4m0 4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
                 </svg>
-                Please enter a valid email address
+                {{ $t('signIn.invalidEmail') }}
               </p>
             </div>
 
@@ -87,13 +87,13 @@
             <div>
               <div class="flex items-center justify-between mb-2">
                 <Label for="password" class="text-gray-900 text-sm font-medium">
-                  Password <span class="text-red-500">*</span>
+                  {{ $t('signIn.passwordLabel') }} <span class="text-red-500">*</span>
                 </Label>
                 <NuxtLink
-                  to="/forgot-password"
+                  :to="localePath('/forgot-password')"
                   class="text-primary hover:text-primary/80 text-sm font-medium transition-colors"
                 >
-                  Forgotten your password?
+                  {{ $t('signIn.forgotPassword') }}
                 </NuxtLink>
               </div>
               <div class="relative">
@@ -101,7 +101,7 @@
                   id="password"
                   v-model="formData.password"
                   :type="showPassword ? 'text' : 'password'"
-                  placeholder="Enter your password"
+                  :placeholder="$t('signIn.passwordPlaceholder')"
                   required
                   class="w-full pr-10"
                 />
@@ -109,7 +109,7 @@
                   type="button"
                   @click="showPassword = !showPassword"
                   class="absolute right-3 top-1/2 transform -translate-y-1/2 text-gray-400 hover:text-gray-600 transition-colors focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 rounded p-1"
-                  aria-label="Toggle password visibility"
+                  :aria-label="$t('signIn.passwordLabel')"
                   tabindex="0"
                 >
                   <svg
@@ -159,7 +159,7 @@
                 class="w-4 h-4 text-primary border-gray-300 rounded focus:ring-primary focus:ring-2 focus:ring-offset-0 cursor-pointer transition-colors"
               />
               <Label for="remember" class="ml-2.5 text-gray-900 cursor-pointer text-sm select-none">
-                Remember me
+                {{ $t('signIn.rememberMe') }}
               </Label>
             </div>
 
@@ -170,14 +170,14 @@
               class="w-full bg-primary text-white hover:bg-primary/95 py-3 text-base font-semibold uppercase transition-all shadow-lg hover:shadow-xl disabled:opacity-50 disabled:cursor-not-allowed mt-2"
             >
               <span v-if="!isSubmitting" class="flex items-center justify-center gap-2">
-                Sign in
+                {{ $t('signIn.signInButton') }}
               </span>
               <span v-else class="flex items-center justify-center gap-2">
                 <svg class="animate-spin h-5 w-5" fill="none" viewBox="0 0 24 24">
                   <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
                   <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
                 </svg>
-                Signing in...
+                {{ $t('signIn.signingIn') }}
               </span>
             </Button>
           </form>
@@ -185,12 +185,12 @@
           <!-- Sign Up Link -->
           <div class="mt-8 pt-6 border-t border-gray-200 text-center">
             <p class="text-gray-600 text-sm">
-              Don't have an account?
+              {{ $t('signIn.noAccount') }}
               <NuxtLink
-                to="/register"
+                :to="localePath('/register')"
                 class="text-primary hover:text-primary/80 hover:underline font-medium transition-colors ml-1"
               >
-                Sign up
+                {{ $t('signIn.signUp') }}
               </NuxtLink>
             </p>
           </div>
@@ -203,6 +203,7 @@
 <script setup lang="ts">
 import { ref, computed, onMounted } from 'vue'
 import { useLogoPath } from '~/composables/useLogoPath'
+import { useLocalePath } from '#imports'
 import Input from '~/components/ui/Input.vue'
 import Label from '~/components/ui/Label.vue'
 import Button from '~/components/ui/Button.vue'
@@ -213,6 +214,7 @@ definePageMeta({
 
 const { getLogoPath } = useLogoPath()
 const logoPath = getLogoPath('shace-logo-white.svg')
+const localePath = useLocalePath()
 
 const formData = ref({
   email: '',

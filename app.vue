@@ -1,6 +1,22 @@
 <template>
-  <NuxtPage />
+  <div :dir="dir" :lang="locale">
+    <NuxtPage />
+  </div>
 </template>
+
+<script setup lang="ts">
+import { computed } from 'vue'
+
+const { locale } = useI18n()
+const dir = computed(() => locale.value === 'ar' ? 'rtl' : 'ltr')
+
+useHead({
+  htmlAttrs: {
+    lang: computed(() => locale.value),
+    dir: computed(() => locale.value === 'ar' ? 'rtl' : 'ltr')
+  }
+})
+</script>
 
 <style>
 /* Smooth scrolling for the entire app */
